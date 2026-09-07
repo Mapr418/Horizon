@@ -156,27 +156,44 @@
     ],
     "category_groups": {
       "frontier-lab": {
-        "title": "前沿实验室与模型发布",
-        "limit": 5
+        "name": "前沿实验室与模型发布",
+        "limit": 5,
+        "categories": [
+          "frontier-lab"
+        ]
       },
-      "papers": {
-        "title": "论文与研究突破",
-        "limit": 4
+      "research": {
+        "name": "论文与研究突破",
+        "limit": 5,
+        "categories": [
+          "papers",
+          "research",
+          "research-lab"
+        ]
       },
       "ai-engineering": {
-        "title": "AI 工程与工具",
-        "limit": 3
+        "name": "AI 工程与工具",
+        "limit": 3,
+        "categories": [
+          "ai-engineering"
+        ]
       },
       "analysis": {
-        "title": "深度解读",
-        "limit": 3
+        "name": "深度解读",
+        "limit": 3,
+        "categories": [
+          "analysis"
+        ]
       },
       "frontier-news": {
-        "title": "行业前沿动态",
-        "limit": 4
+        "name": "行业前沿动态",
+        "limit": 4,
+        "categories": [
+          "frontier-news"
+        ]
       }
     },
-    "default_group": "其他 AI 动态",
+    "default_group": "other",
     "default_group_limit": 3
   },
   "email": {
