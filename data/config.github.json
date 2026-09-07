@@ -72,7 +72,12 @@
     ]
   },
   "email": {
-    "enabled": false
+    "enabled": false,
+    "smtp_server": "smtp.qq.com",
+    "smtp_port": 465,
+    "imap_server": "imap.qq.com",
+    "imap_port": 993,
+    "email_address": "noreply@example.com"
   },
   "webhook": {
     "enabled": false
