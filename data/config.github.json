@@ -4,7 +4,7 @@
     "model": "deepseek-v4-flash",
     "base_url": "https://api.deepseek.com",
     "api_key_env": "DEEPSEEK_API_KEY",
-    "temperature": 0.3,
+    "temperature": 0.25,
     "max_tokens": 8192,
     "throttle_sec": 1,
     "languages": [
@@ -18,7 +18,7 @@
     "default_profile": "tech-news",
     "profile_settings": {
       "tech-news": {
-        "threshold": 7,
+        "threshold": 6.5,
         "topic_dedup": true
       }
     }
@@ -26,17 +26,94 @@
   "sources": {
     "github": [],
     "hackernews": {
-      "enabled": true,
+      "enabled": false,
       "fetch_top_stories": 10,
       "min_score": 100,
       "profile": "tech-news"
     },
     "rss": [
       {
+        "name": "OpenAI News",
+        "url": "https://openai.com/news/rss.xml",
+        "enabled": true,
+        "category": "frontier-lab",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Google DeepMind Blog",
+        "url": "https://deepmind.google/blog/rss.xml",
+        "enabled": true,
+        "category": "frontier-lab",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Google AI",
+        "url": "https://blog.google/technology/ai/rss/",
+        "enabled": true,
+        "category": "frontier-lab",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Google Research",
+        "url": "https://research.google/blog/rss/",
+        "enabled": true,
+        "category": "research-lab",
+        "profile": "tech-news"
+      },
+      {
+        "name": "BAIR Blog",
+        "url": "https://bair.berkeley.edu/blog/feed.xml",
+        "enabled": true,
+        "category": "research-lab",
+        "profile": "tech-news"
+      },
+      {
+        "name": "MIT News AI",
+        "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
+        "enabled": true,
+        "category": "research",
+        "profile": "tech-news"
+      },
+      {
+        "name": "arXiv AI",
+        "url": "https://rss.arxiv.org/rss/cs.AI",
+        "enabled": true,
+        "category": "papers",
+        "profile": "tech-news"
+      },
+      {
+        "name": "arXiv Machine Learning",
+        "url": "https://rss.arxiv.org/rss/cs.LG",
+        "enabled": true,
+        "category": "papers",
+        "profile": "tech-news"
+      },
+      {
+        "name": "arXiv NLP",
+        "url": "https://rss.arxiv.org/rss/cs.CL",
+        "enabled": true,
+        "category": "papers",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Import AI",
+        "url": "https://importai.substack.com/feed",
+        "enabled": true,
+        "category": "analysis",
+        "profile": "tech-news"
+      },
+      {
+        "name": "The Gradient",
+        "url": "https://thegradient.pub/rss/",
+        "enabled": true,
+        "category": "analysis",
+        "profile": "tech-news"
+      },
+      {
         "name": "Simon Willison",
         "url": "https://simonwillison.net/atom/everything/",
         "enabled": true,
-        "category": "ai-tools",
+        "category": "ai-engineering",
         "profile": "tech-news"
       }
     ],
@@ -59,17 +136,48 @@
       "enabled": false
     },
     "google_news": {
-      "enabled": false
+      "enabled": true,
+      "query": "(OpenAI OR Anthropic OR DeepMind OR Gemini OR GPT OR Claude OR \"large language model\" OR \"AI model\")",
+      "language": "en",
+      "country": "US",
+      "ceid": null,
+      "max_results": 30,
+      "category": "frontier-news",
+      "profile": "tech-news"
     }
   },
   "collection": {
     "time_window_hours": 24
   },
   "digest": {
-    "max_items": 8,
+    "max_items": 12,
     "profile_order": [
       "tech-news"
-    ]
+    ],
+    "category_groups": {
+      "frontier-lab": {
+        "title": "前沿实验室与模型发布",
+        "limit": 5
+      },
+      "papers": {
+        "title": "论文与研究突破",
+        "limit": 4
+      },
+      "ai-engineering": {
+        "title": "AI 工程与工具",
+        "limit": 3
+      },
+      "analysis": {
+        "title": "深度解读",
+        "limit": 3
+      },
+      "frontier-news": {
+        "title": "行业前沿动态",
+        "limit": 4
+      }
+    },
+    "default_group": "其他 AI 动态",
+    "default_group_limit": 3
   },
   "email": {
     "enabled": false,
