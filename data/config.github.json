@@ -18,7 +18,7 @@
     "default_profile": "tech-news",
     "profile_settings": {
       "tech-news": {
-        "threshold": 5.5,
+        "threshold": 4,
         "topic_dedup": true
       }
     }
@@ -34,7 +34,7 @@
     "rss": [
       {
         "name": "LLM Papers Search",
-        "url": "https://export.arxiv.org/api/query?search_query=all:%22large%20language%20model%22&start=0&max_results=2&sortBy=submittedDate&sortOrder=descending",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22large%20language%20model%22&start=0&max_results=1&sortBy=submittedDate&sortOrder=descending",
         "enabled": true,
         "category": "papers",
         "profile": "tech-news"
@@ -78,7 +78,7 @@
       "language": "en",
       "country": "US",
       "ceid": null,
-      "max_results": 6,
+      "max_results": 7,
       "category": "frontier-news",
       "profile": "tech-news"
     }
@@ -87,21 +87,21 @@
     "time_window_hours": 24
   },
   "digest": {
-    "max_items": 8,
+    "max_items": 5,
     "profile_order": [
       "tech-news"
     ],
     "category_groups": {
       "frontier-news": {
         "name": "模型发布与行业前沿",
-        "limit": 6,
+        "limit": 4,
         "categories": [
           "frontier-news"
         ]
       },
       "papers": {
         "name": "论文与研究突破",
-        "limit": 4,
+        "limit": 3,
         "categories": [
           "papers"
         ]
