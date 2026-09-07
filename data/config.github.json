@@ -18,7 +18,7 @@
     "default_profile": "tech-news",
     "profile_settings": {
       "tech-news": {
-        "threshold": 7,
+        "threshold": 5.5,
         "topic_dedup": true
       }
     }
