@@ -1,8 +1,8 @@
 {
   "id": "tech-news",
-  "name": "Technology News",
+  "name": "AI Frontier Briefing",
   "display_names": {
-    "zh": "科技新闻"
+    "zh": "AI前沿简讯"
   },
   "match": "match.md",
   "analysis": "analysis.md",
@@ -18,12 +18,16 @@
       {
         "id": "background",
         "type": "section",
-        "tools": ["web_search"]
+        "tools": [
+          "web_search"
+        ]
       },
       {
         "id": "impact",
         "type": "section",
-        "tools": ["web_search"],
+        "tools": [
+          "web_search"
+        ],
         "optional": true
       },
       {
