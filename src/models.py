@@ -433,6 +433,7 @@ class GoogleNewsConfig(BaseModel):
     ceid: Optional[str] = None  # when None scraper derives it as "{country}:{language}"
     max_results: int = 100  # cap ~100
     category: Optional[str] = None
+    content_extractor: Optional[str] = None
     profile: ProfileRoute = None
 
 

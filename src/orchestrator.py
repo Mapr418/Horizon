@@ -479,7 +479,13 @@ class HorizonOrchestrator:
 
             # Google News RSS (key-less news search)
             if self.config.sources.google_news and self.config.sources.google_news.enabled:
-                gn_scraper = GoogleNewsScraper(self.config.sources.google_news, client)
+                from .extractors import ExtractorRegistry
+
+                gn_scraper = GoogleNewsScraper(
+                    self.config.sources.google_news,
+                    client,
+                    ExtractorRegistry(self.config.extractors),
+                )
                 tasks.append(self._fetch_with_progress("Google News", gn_scraper, since))
 
             # Fetch all concurrently

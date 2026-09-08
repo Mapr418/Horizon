@@ -11,7 +11,7 @@
       "zh"
     ],
     "analysis_concurrency": 1,
-    "enrichment_concurrency": 1
+    "enrichment_concurrency": 2
   },
   "processing": {
     "profiles_dir": "profiles",
@@ -120,7 +120,8 @@
       "ceid": null,
       "max_results": 8,
       "category": "frontier-news",
-      "profile": "tech-news"
+      "profile": "tech-news",
+      "content_extractor": "trafilatura"
     }
   },
   "collection": {
