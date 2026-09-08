@@ -917,6 +917,8 @@ class HorizonOrchestrator:
     ) -> bool:
         if not item.processing or not item.processing.analysis:
             return False
+        if self.is_forced_digest_category(item):
+            return self.has_body_backing(item)
         profile_id = item.processing.classification.profile
         settings = self.config.processing.profile_settings.get(profile_id)
         effective_threshold = threshold
@@ -926,6 +928,11 @@ class HorizonOrchestrator:
             return True
         score = item.processing.analysis.score
         return score is not None and score >= effective_threshold
+
+    @staticmethod
+    def is_forced_digest_category(item: ContentItem) -> bool:
+        """Return True for user-requested digest blocks that bypass AI-news thresholds."""
+        return item.metadata.get("category") in {"github-daily-top5"}
 
     def apply_balanced_digest(
         self,
