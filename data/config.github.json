@@ -118,7 +118,7 @@
       "language": "en",
       "country": "US",
       "ceid": null,
-      "max_results": 10,
+      "max_results": 8,
       "category": "frontier-news",
       "profile": "tech-news"
     }
@@ -127,21 +127,21 @@
     "time_window_hours": 24
   },
   "digest": {
-    "max_items": 10,
+    "max_items": 8,
     "profile_order": [
       "tech-news"
     ],
     "category_groups": {
       "frontier-news": {
         "name": "模型发布与行业前沿",
-        "limit": 7,
+        "limit": 6,
         "categories": [
           "frontier-news"
         ]
       },
       "papers": {
         "name": "论文与研究突破",
-        "limit": 5,
+        "limit": 4,
         "categories": [
           "papers"
         ]
