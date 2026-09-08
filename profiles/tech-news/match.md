@@ -1,7 +1,7 @@
-# Technology news profile
+# AI frontier daily brief profile
 
-Use this profile for timely developments in software engineering, artificial intelligence, machine learning, computer systems, hardware, open source, and the technology industry.
+Use this profile for timely AI developments: model releases, frontier lab updates, AI agents, multimodal systems, benchmarks, research papers, open-source models and tools, safety/alignment, AI infrastructure, and AI adoption that changes how people build or use AI.
 
-Typical items include substantial releases, research breakthroughs, security incidents, industry announcements, technical analyses tied to a recent event, and community discussions that add practical insight.
+The preferred item has at least one concrete AI angle: a model name, organization, paper, benchmark, capability, architecture, dataset, API, product feature, deployment pattern, safety issue, or research direction.
 
-Do not use this profile for content whose primary value is a complete long-form argument, a step-by-step tutorial, a full academic paper, finance-first market coverage, routine updates, or promotional material without substantive information.
+Avoid items whose main value is stock trading, generic business promotion, consumer electronics, celebrity chatter, broad regulation with no AI-system detail, or tutorials that are not tied to a current development.

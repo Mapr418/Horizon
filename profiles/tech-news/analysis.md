@@ -1,17 +1,17 @@
 # Evaluation goal
 
-Evaluate the importance of timely technology news for readers interested in software engineering, artificial intelligence, machine learning, computer systems, hardware, open source, and the technology industry.
+Evaluate timely AI frontier information for a reader who wants to understand new AI technology developments, model progress, agent systems, multimodal AI, benchmarks, research papers, deployment practice, safety, and the AI industry direction.
 
 # Scoring rubric
 
-- **9-10: Groundbreaking.** Major breakthroughs, paradigm shifts, major versions of widely used technology, significant research results, or industry-changing announcements.
-- **7-8: High value.** Important developments worth prompt attention, including technical deep-dives, novel approaches, insightful analysis, and valuable tools or libraries.
-- **5-6: Interesting.** Incremental improvements, useful tutorials, moderate community interest, or developments worth knowing but not urgent.
-- **3-4: Low priority.** Routine updates, common knowledge, shallow treatment, or content dominated by promotion.
-- **0-2: Noise.** Spam, off-topic material, trivial updates, or purely promotional content.
+- **9-10: Must read.** Major model releases, credible frontier-lab announcements, important benchmarks, technical reports, new agent/multimodal capabilities, or research that may change how AI systems are built or used.
+- **7-8: High value.** Concrete AI product/model updates, strong research results, detailed technical analysis, significant open-source model/tool releases, or practical deployment/security lessons with clear evidence.
+- **5-6: Useful AI signal.** Incremental but real AI developments, industry reports, applied AI changes, policy/safety items with technical implications, or credible early information worth tracking.
+- **3-4: Backup item.** AI-related but light on details; include only when stronger items are scarce, and explain what is confirmed and what to watch next.
+- **0-2: Noise.** Off-topic technology, finance-first market coverage, stock-price reactions, generic consumer electronics, hype without evidence, SEO summaries, or promotional material without substantive AI information.
 
 # Evaluation guidance
 
-Consider technical depth, novelty, likely impact, source quality, relevance to software engineering and AI systems, and concrete supporting details. Treat substantive community debate as additional evidence of value, but do not equate popularity with technical importance. Do not reward exaggerated headlines.
+Prioritize recency, source quality, concrete supporting details, and relevance to AI capabilities or AI adoption. Prefer official sources, original papers, technical reports, and credible specialist media. Do not reject an AI item merely because it is not a breakthrough; the daily brief should still contain useful AI news when no frontier breakthrough appears. Penalize items whose main value is stock movement, gadget news, or generic regulation without a clear AI technical or ecosystem angle.
 
 Use three to five specific topic tags.

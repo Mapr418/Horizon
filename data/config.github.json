@@ -5,7 +5,7 @@
     "base_url": "https://api.deepseek.com",
     "api_key_env": "DEEPSEEK_API_KEY",
     "temperature": 0.25,
-    "max_tokens": 8192,
+    "max_tokens": 12000,
     "throttle_sec": 1,
     "languages": [
       "zh"
@@ -18,7 +18,7 @@
     "default_profile": "tech-news",
     "profile_settings": {
       "tech-news": {
-        "threshold": 4,
+        "threshold": 3.0,
         "topic_dedup": true
       }
     }
@@ -33,15 +33,55 @@
     },
     "rss": [
       {
+        "name": "OpenAI News",
+        "url": "https://openai.com/news/rss.xml",
+        "enabled": true,
+        "category": "frontier-news",
+        "content_extractor": "trafilatura",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Google DeepMind Blog",
+        "url": "https://deepmind.google/blog/feed/basic/",
+        "enabled": true,
+        "category": "frontier-news",
+        "content_extractor": "trafilatura",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Google AI Blog",
+        "url": "https://blog.google/technology/ai/rss/",
+        "enabled": true,
+        "category": "frontier-news",
+        "content_extractor": "trafilatura",
+        "profile": "tech-news"
+      },
+      {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/feed.xml",
+        "enabled": true,
+        "category": "frontier-news",
+        "content_extractor": "trafilatura",
+        "profile": "tech-news"
+      },
+      {
+        "name": "MIT News AI",
+        "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
+        "enabled": true,
+        "category": "frontier-news",
+        "content_extractor": "trafilatura",
+        "profile": "tech-news"
+      },
+      {
         "name": "LLM Papers Search",
-        "url": "https://export.arxiv.org/api/query?search_query=all:%22large%20language%20model%22&start=0&max_results=1&sortBy=submittedDate&sortOrder=descending",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22large%20language%20model%22&start=0&max_results=2&sortBy=submittedDate&sortOrder=descending",
         "enabled": true,
         "category": "papers",
         "profile": "tech-news"
       },
       {
         "name": "AI Agents Papers Search",
-        "url": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22&start=0&max_results=1&sortBy=submittedDate&sortOrder=descending",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22&start=0&max_results=2&sortBy=submittedDate&sortOrder=descending",
         "enabled": true,
         "category": "papers",
         "profile": "tech-news"
@@ -74,11 +114,11 @@
     },
     "google_news": {
       "enabled": true,
-      "query": "(OpenAI OR Anthropic OR DeepMind OR Gemini OR GPT OR Claude OR \"large language model\" OR \"AI agent\") (model OR release OR benchmark OR research OR paper OR agent)",
+      "query": "(OpenAI OR Anthropic OR DeepMind OR Gemini OR GPT OR Claude OR \"large language model\" OR \"AI agent\" OR multimodal OR benchmark OR \"AI model\") (release OR launches OR announces OR research OR benchmark OR paper OR agent OR safety OR open-source) -stock -shares -rally -smartphone -TV",
       "language": "en",
       "country": "US",
       "ceid": null,
-      "max_results": 7,
+      "max_results": 10,
       "category": "frontier-news",
       "profile": "tech-news"
     }
@@ -87,21 +127,21 @@
     "time_window_hours": 24
   },
   "digest": {
-    "max_items": 5,
+    "max_items": 10,
     "profile_order": [
       "tech-news"
     ],
     "category_groups": {
       "frontier-news": {
         "name": "模型发布与行业前沿",
-        "limit": 4,
+        "limit": 7,
         "categories": [
           "frontier-news"
         ]
       },
       "papers": {
         "name": "论文与研究突破",
-        "limit": 3,
+        "limit": 5,
         "categories": [
           "papers"
         ]
@@ -120,5 +160,11 @@
   },
   "webhook": {
     "enabled": false
+  },
+  "extractors": {
+    "trafilatura": {
+      "type": "trafilatura",
+      "favor_recall": true
+    }
   }
 }

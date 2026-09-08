@@ -66,7 +66,16 @@ jobs:
             exit 0
           fi
           mkdir -p "AI资料简讯"
-          cp "${reports[@]}" "AI资料简讯/"
+          for report in "${reports[@]}"; do
+            filename="$(basename "$report")"
+            target="AI资料简讯/$filename"
+            if [ -e "$target" ]; then
+              stem="${filename%.md}"
+              target="AI资料简讯/${stem}-run-${GITHUB_RUN_NUMBER}.md"
+            fi
+            cp "$report" "$target"
+            echo "Archived $target"
+          done
 
       - name: Commit Obsidian archive
         run: |
