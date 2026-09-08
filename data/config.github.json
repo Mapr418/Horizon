@@ -34,7 +34,7 @@
         "min_stars": 500,
         "fetch_readme": true,
         "readme_max_chars": 5000,
-        "enabled": true,
+        "enabled": false,
         "category": "open-source",
         "profile": "tech-news"
       },
@@ -47,7 +47,7 @@
         "min_stars": 200,
         "fetch_readme": true,
         "readme_max_chars": 5000,
-        "enabled": true,
+        "enabled": false,
         "category": "open-source",
         "profile": "tech-news"
       },
@@ -60,7 +60,7 @@
         "min_stars": 50,
         "fetch_readme": true,
         "readme_max_chars": 5000,
-        "enabled": true,
+        "enabled": false,
         "category": "open-source",
         "profile": "tech-news"
       },
@@ -73,7 +73,7 @@
         "min_stars": 200,
         "fetch_readme": true,
         "readme_max_chars": 5000,
-        "enabled": true,
+        "enabled": false,
         "category": "open-source",
         "profile": "tech-news"
       },
@@ -276,27 +276,14 @@
       "enabled": true,
       "period": "past_24_hours",
       "languages": [
-        "All",
-        "Python",
-        "TypeScript"
+        "All"
       ],
-      "keywords": [
-        "ai",
-        "llm",
-        "agent",
-        "model",
-        "rag",
-        "deepseek",
-        "openai",
-        "claude",
-        "gemini",
-        "multimodal"
-      ],
-      "min_stars": 20,
-      "max_items": 8,
+      "keywords": [],
+      "min_stars": 0,
+      "max_items": 5,
       "fetch_readme": true,
-      "readme_max_chars": 5000,
-      "category": "open-source",
+      "readme_max_chars": 7000,
+      "category": "github-daily-top5",
       "profile": "tech-news"
     },
     "gdelt": {
@@ -304,11 +291,11 @@
     },
     "google_news": {
       "enabled": true,
-      "query": "(OpenAI OR Anthropic OR DeepMind OR Gemini OR GPT OR Claude OR \"large language model\" OR \"AI agent\" OR multimodal OR benchmark OR \"AI model\") (release OR launches OR announces OR research OR benchmark OR paper OR agent OR safety OR open-source) -stock -shares -rally -smartphone -TV",
+      "query": "((OpenAI OR ChatGPT OR Codex OR DeepSeek OR Kimi OR Moonshot OR Anthropic OR Claude OR DeepMind OR Gemini OR xAI OR Grok OR Meta AI OR Llama OR Qwen OR Mistral OR Hugging Face OR artificial intelligence OR AI) (model OR release OR launches OR announces OR update OR benchmark OR reasoning OR agent OR multimodal OR API OR quota OR usage limit OR rate limit OR pricing OR credits OR reset OR technical report OR open weights OR research OR product)) -stock -shares -rally -smartphone -TV",
       "language": "en",
       "country": "US",
       "ceid": null,
-      "max_results": 6,
+      "max_results": 8,
       "category": "frontier-news",
       "profile": "tech-news",
       "content_extractor": "trafilatura"
@@ -323,19 +310,20 @@
       "tech-news"
     ],
     "category_groups": {
-      "company-release": {
-        "name": "公司发布与官方动态",
-        "limit": 3,
+      "model-company-news": {
+        "name": "模型进展与公司动态",
+        "limit": 5,
         "categories": [
           "company-release",
-          "company-news"
+          "company-news",
+          "frontier-news"
         ]
       },
-      "open-source": {
-        "name": "开源社区热度",
-        "limit": 3,
+      "github-daily-top5": {
+        "name": "GitHub 日榜 Top 5",
+        "limit": 5,
         "categories": [
-          "open-source"
+          "github-daily-top5"
         ]
       },
       "community-discussion": {
