@@ -5,140 +5,174 @@ date: 2026-09-08
 lang: zh
 ---
 
-> 从 19 条内容中筛选出 8 条重要资讯。
+> 从 51 条内容中筛选出 10 条重要资讯。
 
 ---
 
 **AI 前沿简讯**
-1. [Anthropic 据报签下最高 5170 亿美元算力合同，算力竞赛持续升级](#item-tech-news-1) ⭐️ 8.0/10
-2. [Harbor Adapters：为 80+ 智能体评测基准提供统一基础设施与 Harbor-Index 精选集](#item-tech-news-2) ⭐️ 8.0/10
-3. [GPT-6 Astra 无人工干预自主通关《传送门》，全程约 23 小时 43 分钟](#item-tech-news-3) ⭐️ 7.0/10
-4. [EXAONE 发布面向金融时序预测的无注意力基础模型 EXAONE Finance](#item-tech-news-4) ⭐️ 7.0/10
-5. [Iris：以超链接多跳数据管线训练的搜索智能体登上 arXiv](#item-tech-news-5) ⭐️ 7.0/10
-6. [JEPA 式世界模型的新失败模式：物理表示惰性及傅里叶辅助头方案](#item-tech-news-6) ⭐️ 7.0/10
-7. [Anthropic 15 亿美元和解金分配起争议：作者指出版商与经纪公司越权索赔](#item-tech-news-7) ⭐️ 6.0/10
-8. [曝 Kalanick 的 Atoms 正进入 Robotaxi 领域，Uber 已投资 1 亿美元](#item-tech-news-8) ⭐️ 6.0/10
+1. [vLLM 宣布 AMD GPU 投机解码支持，官方覆盖范围仍存疑问](#item-tech-news-1) ⭐️ 8.0/10
+2. [AI Agent 全程自主通关《传送门》，耗时 23 小时 43 分钟](#item-tech-news-2) ⭐️ 8.0/10
+3. [amux：开源 Rust 控制平面，让多个 AI 编码代理协同一张任务板](#item-tech-news-3) ⭐️ 7.0/10
+4. [Nomi：本地优先的开源 AI 视频工作台，让编码代理经 MCP 驱动生成与剪辑](#item-tech-news-4) ⭐️ 7.0/10
+5. [Anthropic 被曝签下 5170 亿美元算力合同，AI 基础设施竞赛再升级](#item-tech-news-5) ⭐️ 7.0/10
+6. [OpenBMB 发布 MiniCPM5-2B：宣称 4B 以下开源模型 AAII v4.2 最高分](#item-tech-news-6) ⭐️ 7.0/10
+7. [ModelScope EvalScope 评测框架：v1.11.0 推出版本化评测与多项新基准](#item-tech-news-7) ⭐️ 6.0/10
+8. [Anthropic 15 亿美元和解金分配起风波：作者抗议出版商与经纪公司越权分成](#item-tech-news-8) ⭐️ 6.0/10
+9. [EXAONE Finance：面向金融时序预测的注意力无关基础模型](#item-tech-news-9) ⭐️ 6.0/10
+10. [AI 招聘综述：从匹配模型到智能体工作流](#item-tech-news-10) ⭐️ 6.0/10
 
 ---
 
 ## AI 前沿简讯
 
 <a id="item-tech-news-1"></a>
-### [Anthropic 据报签下最高 5170 亿美元算力合同，算力竞赛持续升级](https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk/) ⭐️ 8.0/10
+### [vLLM 宣布 AMD GPU 投机解码支持，官方覆盖范围仍存疑问](https://vllm.ai/blog/2026-08-23-speculative-decoding-amd-gpus) ⭐️ 8.0/10
 
-据《The Information》报道，自 2025 年 10 月以来，Anthropic 在 11 个月内签下最高可达 5170 亿美元的计算合同，锁定至少 14.8 吉瓦的新增算力；此前公司只有 1 至 2 吉瓦的算力，并正规划自建数据中心。其总规划容量很可能仍低于 OpenAI 的 2030 年 30 吉瓦目标，但大量合同期限远晚于 2030 年，直接比较并不容易。财务层面，Anthropic 据彭博社口径年化收入已超过 650 亿美元，OpenAI 在 2025 年 7 月约为 400 亿美元；两家公司都还无法仅凭收入覆盖这些长期承诺。叙事反转之处在于，Anthropic CEO Dario Amodei 2026 年初曾警告竞争对手投资过快、&quot;并不真正理解所承担的风险&quot;，现在 Anthropic 反而在猛追算力；OpenAI CEO Sam Altman 则警告所谓&quot;新型云提供商&quot;存在&quot;不可持续的愚蠢行为&quot;，并认为技术进步可能让今天昂贵的项目变成坏赌注。目前这一信息属于媒体报道，合同细节与官方确认仍然缺失。
+vLLM 官方博客于 2026-08-23 发布题为“Speculative Decoding in vLLM on AMD GPUs”的公告，宣布在 AMD GPU 上支持投机解码。由于条目未附带正文，文章中的具体实现方式、支持型号和性能数据尚不足以确认；目前能确认的是这次发布本身以及社区讨论所反映的关注点。社区反馈显示，用户对 AMD 工作站级显卡 R9700（AI Pro）的支持不足感到困惑，因为 stock vLLM 的速度明显低于 Radiance 等 fork；也有人直接提问目标模型如何验证候选 token，以及 AMD 与 NVIDIA 同型号上的接受率对比。整体上这是 vLLM 向 AMD 生态扩展的信号，但技术细节需以博客原文和后续技术文档为准。
 
-rss · The Decoder · 9月7日 18:12
+hackernews · ankitg12 · 9月7日 09:26 · [社区讨论](https://news.ycombinator.com/item?id=49596054)
 
-**「背景」** Anthropic 是 Claude 系列模型背后的 AI 实验室，OpenAI 是其主要竞争对手；两者竞争的核心之一是可容纳大量 GPU 的数据中心。这里的&quot;吉瓦&quot;是电力容量单位，行业常以此估算数据中心规模和可部署的芯片数量，而 5170 亿美元合同属于长期基础设施承诺，并非当期收入。理解了这一点，Anthropic 与 OpenAI 的目标差异（现有 1 至 2 吉瓦加上新增 14.8 吉瓦，对照 2030 年 30 吉瓦）反映的是两家前沿模型公司对未来数年训练与推理算力的不同押注。
+**「背景」** 投机解码是一种大模型推理加速方法：由较小的草稿模型快速生成候选 token 序列，再由大模型并行验证，从而减少自回归串行解码的步数。vLLM 是广泛使用的开源大模型推理引擎，优化吞吐与内存占用，主要面向生产部署；其对 AMD ROCm GPU 的支持一直落后于 NVIDIA CUDA 生态。此次公告意味着 vLLM 官方正在补齐 AMD 平台的推理加速能力，但仍需关注具体覆盖哪些 AMD GPU 系列。
 
-**「影响」** 对开发者和行业观察者而言，这说明前沿模型公司的竞争门槛已经从算法与排行榜延伸到万亿美元级能源和算力合约，后续资本开支可能影响云服务价格与模型商业化方式。下一步应关注两家公司正式披露的融资与折旧安排、实际开工的算力规模，以及 Amodei 和 Altman 对过度投资的警告是否会被模型效率提升或盈利现实所证明。
+**「影响」** 对在 AMD 硬件上部署开源模型的工程团队来说，官方投机解码支持会在成本和可用性上带来直接影响；但社区评论提示，实际收益高度依赖显卡型号，工作站级 R9700 用户可能仍需使用 Radiance 等分支。下一步应关注 vLLM 发布的 AMD 支持型号列表、与 NVIDIA 同模型上的接受率对比，以及第三方复现测试，才能判断这是全面优化还是仅针对数据中心 GPU。
 
-**标签**: `#Anthropic`, `#compute infrastructure`, `#AI industry`, `#Dario Amodei`, `#OpenAI`
+**「社区讨论」** Hacker News 讨论整体认可 AMD 获得 vLLM 一流支持，但集中表达了对工作站级 R9700 被忽视的不满：有用户称在 stock vLLM 上只能达到约 20–30 token/s，而 Radiance 等 fork 可达 150–200 token/s，批评官方工作主要围绕数据中心卡和 AMD AI Halo/Ryzen。另有评论提出投机解码验证机制的基础问题，并询问 AMD 与 NVIDIA 在相同模型上的接受率差异，说明社区对实际性能仍持观望态度。
+
+**标签**: `#speculative decoding`, `#vLLM`, `#AMD GPUs`, `#inference optimization`, `#open-source tools`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Harbor Adapters：为 80+ 智能体评测基准提供统一基础设施与 Harbor-Index 精选集](https://arxiv.org/abs/2609.04298) ⭐️ 8.0/10
+### [AI Agent 全程自主通关《传送门》，耗时 23 小时 43 分钟](https://the-decoder.com/gpt-6-astra-beat-portal-start-to-finish-without-human-help-in-under-24-hours/) ⭐️ 8.0/10
 
-该 arXiv 预印本提出 Harbor Adapters，一套统一的基础设施，通过适配器将超过 80 个智能体评测基准改造为可评估任意智能体的统一界面，并用严格代码审查与 parity 实验验证适配质量。作者据此执行了大规模评测：8 个覆盖不同能力档次的模型在 54 个基准上运行，每个模型均在 Terminus-2 与某个原生 harness（共有 3 种）下测试。在适配后的基准池基础上，研究团队经过难度筛选、AI 与人工审计以及“审计-修复”循环，整理出 Harbor-Index 精选元数据集：包含来自 29 个基准的 82 个困难且多样的高质量任务。结果显示评测难度充足：没有任何“模型-运行环境”配置的通过率超过 30%，最强配置 GPT-5.5 with Codex 达到 28.0%。论文称适配器、评测结果、深度分析和 Harbor-Index 都将作为开源工件发布，用于更可靠、更全面的语言模型智能体评测。
+据科技媒体 The Decoder 报道，开发者 cozyblaze 在 X 上表示，AI 智能体 GPT-6 Astra 在设置初始目标后、无任何人类帮助的情况下，从开始到通关字幕完整游玩了《传送门（Portal）》，全程约 23 小时 43 分钟。在运行过程中，模型通过 MCP 和修改版 SourcePauseTool 控制游戏：它会在游戏暂停时查看截图、玩家位置和摄像机角度，再选择输入并恢复游戏。按文章所称 Astra 的列表价计算，token 成本至少为 570 美元；cozyblaze 实际上使用的是 200 美元 Codex 订阅。代码与文档已开源在 GitHub。开发者在 X 上提到，OpenAI 2016 年曾提出用单一智能体解决多种游戏的目标，并评价 GPT-6 Astra 是“我们未来能得到的最差模型”。由于目前证据来自开发者个人帖子和媒体转述，尚无第三方独立复现或官方验证。
 
-rss · arXiv cs.AI · 9月7日 04:00
+rss · The Decoder · 9月7日 17:39
 
-**「背景」** 智能体评测的成本通常来自基准自带的复杂软件环境和 agent 工具调用框架；每个新基准都要单独适配，导致评测规模受限、可比性差。Harbor Adapters 正为此提供可复用的中间层，而 Harbor-Index 是从 80+ 基础中筛选出的 82 个任务，定位是“保留大规模评测难度但运行开销可承担”的元数据集。文中 Terminus-2 是评测使用的执行框架之一，与各模型的原生 harness 共同决定最终通过率。
+**「背景」** 《传送门（Portal）》是 Valve 2007 年推出的第一人称 3D 解谜游戏，玩家需要用传送枪创造空间出入口，并结合动量、配重和激光机制抵达出口，因此常被视为测试 AI 空间理解与长期规划的挑战环境。MCP（Model Context Protocol）是模型与外部工具进行标准化通信的开放协议；SourcePauseTool 则是针对 Source 引擎游戏的修改工具，能让智能体在游戏暂停时截图并读取位置和视角，再决定下一步操作。这条新闻的关键背景是，Agent 不再依赖脚本，而是在每个决策点执行“观察-推理-操作”循环，因而 Portal 通关更像一场长时间自主规划实验。
 
-**「影响与下一步关注点」** 对研究者和智能体产品团队，这项工作的直接价值是降低新增基准的接入成本，并给出一种用低预算精选任务集观察智能体能力与失败模式的方式。接下来值得关注开源适配器与 parity 实验的实际发布、Harbor-Index 任务筛选与审计细节，以及社区用更多模型复现这一“通过率上限在 30% 以下”的对比结果。
+**「影响与下一步」** 对学习者和开发者而言，这是“通用 Agent 玩多种游戏”愿景的一个具体小规模演示：现代多模态模型已经能在真实商业 3D 游戏中连续自主工作近一天，而不是只能完成单轮工具调用。由于目前证据来自个人发布，下一步应关注 GitHub 仓库能否复现、作者是否补充逐帧决策日志和 token 明细，以及 OpenAI 或第三方是否会对 GPT-6 Astra 的能力给出正式确认与独立评测。
 
-**标签**: `#agentic evaluation`, `#benchmarks`, `#AI agents`, `#evaluation infrastructure`, `#research paper`
+**标签**: `#AI agents`, `#GPT-6 Astra`, `#gaming`, `#MCP`, `#autonomous AI`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [GPT-6 Astra 无人工干预自主通关《传送门》，全程约 23 小时 43 分钟](https://the-decoder.com/gpt-6-astra-beat-portal-start-to-finish-without-human-help-in-under-24-hours/) ⭐️ 7.0/10
+### [amux：开源 Rust 控制平面，让多个 AI 编码代理协同一张任务板](https://github.com/mixpeek/amux) ⭐️ 7.0/10
 
-据 The Decoder 转述，开发者 cozyblaze 在 X 上报告，OpenAI 的 GPT-6 Astra 在仅设定初始目标、没有任何人工帮助的情况下，从《Portal》开头一直打到片尾字幕，总耗时约 23 小时 43 分钟。按 Astra 的公开 token 价格估算，这次运行至少产生 570 美元的费用；cozyblaze 实际上是使用 200 美元 Codex 订阅完成操作的。模型通过 MCP 和修改版 SourcePauseTool 控制游戏：每次思考时暂停游戏，读取截图、玩家位置和摄像机角度，选择输入后再恢复运行，视频中已剪掉这些暂停片段。代码和文档已经发布在 GitHub 上。这一结果是开发者个人声明，尚缺少 OpenAI 官方技术报告或第三方复现作为独立证据；cozyblaze 认为该演示呼应了 OpenAI 2016 年提出的“用单一智能体解决多种游戏”的目标，并称 GPT-6 Astra 将是“我们未来拿到的最差模型”。
+开源仓库 mixpeek/amux 当前活跃（Rust 为主，约 402 stars、46 forks、17 个 open issues，元数据显示最近推送为 2026-09-08），项目定位为 AI 编码代理的控制平面。README 显示，它提供单个 Rust 二进制、SQLite 后端、本地优先且可自托管，能通过网页仪表盘或手机端协调并行 worker，支持 Claude Code、Codex、Gemini CLI、OpenCode、Ollama 等代理。协调机制包括：卡牌认领用 compare-and-swap 防止两个 worker 拿到同一任务，完成需要证据、验证需要 peer check；worker 能看到整个 fleet 状态并窥视同级终端；worker 间消息带 origin stamp，由服务器记录真实发送者；还可在运行中转向、设置 cron 定时与自主循环、按 lane 分组作用域、运行中切换模型或供应商、保留完整消息台账。此外，watchdog 会自动压缩数据库、重启崩溃会话并重放最后一条消息；安装脚本会构建并安装服务器与 CLI，在 macOS 配置 launchd，在 Linux 配置 systemd 用户服务，默认仪表盘为 https://localhost:8824。这说明当前主要信号不是模型突破，而是开发者工具链正在补上“多代理编排与可观测性”的缺口。
 
-rss · The Decoder · 9月7日 17:39
+github · mixpeek · 9月8日 03:49
 
-**「背景」** 《Portal》是 Valve 公司 2007 年推出的第一人称解谜游戏，玩家需要利用传送门机制完成物理谜题；完整通关意味着智能体必须具备持续数小时的视觉观察、空间推理和连续决策能力。MCP（Model Context Protocol）是模型与外部环境之间的标准化协议，SourcePauseTool 则是这次演示中使用的修改版暂停工具，让模型在游戏暂停时获取画面和状态，再决定下一步动作。
+**「背景」** Claude Code、Codex、Gemini CLI 这类 AI 编码代理通常是单会话、单任务的命令行工具，用户要自己开多个终端并手工避免冲突。控制平面（control plane）是集中管理执行资源的编排层；amux 的方案是把单个代理对话扩展为共享任务板和分组成员，让多个代理在“认领—完成—验证”语义下共同工作。它与云端 agent 平台不同，主打本地优先、SQLite 存储、一个二进制文件安装；命名中的 amux 暗示 agent multiplexer（代理多路复用器）。
 
-**「影响」** 这次演示说明“暂停—感知—规划—执行”的闭环范式可以支撑较长时程的自主智能体任务，MCP 等工具接口是这种能力落地的关键；同时数百美元的 token 成本也提醒开发者，通用自主代理距离廉价、可靠的规模化仍有距离。下一步值得关注 GitHub 上的代码可复现性、不同模型在同一任务上的横向对比，以及 OpenAI 是否发布相关的官方技术细节或评估。
+**「影响」** 对使用 AI 编码代理的开发者与团队，这类开源项目降低了自建多代理协作系统的门槛，并提供任务证据、peer check、消息溯源和自愈恢复等一致性问题方案。当前证据主要来自 README 和仓库元数据，尚无独立评估；下一步值得关注实际安装与多代理并发稳定性、issue 响应速度，以及许可证细节（README 徽章显示 MIT + Commons Clause，简介则写 MIT）是否会影响企业采用。
 
-**标签**: `#agents`, `#gaming`, `#GPT-6`, `#autonomy`, `#MCP`
+**标签**: `#open-source`, `#agent orchestration`, `#AI coding agents`, `#Rust`, `#developer tools`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [EXAONE 发布面向金融时序预测的无注意力基础模型 EXAONE Finance](https://arxiv.org/abs/2609.04239) ⭐️ 7.0/10
+### [Nomi：本地优先的开源 AI 视频工作台，让编码代理经 MCP 驱动生成与剪辑](https://github.com/aqm857886159/Nomi) ⭐️ 7.0/10
 
-EXAONE 发布技术报告“EXAONE Forecast for Finance（EXAONE Finance）”，提出面向金融时间序列预测的基础模型。该模型采用无注意力架构：用因果 1D 卷积进行时间维混合，用分组感知池化 MLP 进行变量维混合，替代计算成本随序列长度和变量数二次增长的自注意力骨干；同时引入掩码上下文增强，让模型在训练时遇到连续缺失片段，以提升对金融市场普遍存在的缺失观测的鲁棒性。预训练语料覆盖股票、外汇、大宗商品、加密资产、固定收益和宏观经济指标，不仅限于股票。在覆盖多资产类别的金融预测基准 FinVerse 上，EXAONE Finance 在点预测精度、横截面资产排序和组合盈利性三个评估层级均排名第一，报告称达到最先进水平。该报告编号为 arXiv:2609.04239；目前摘要尚未展示具体数值结果与对比基线细节。
+aqm857886159 发布的 Nomi 是一个本地优先的开源 AI 视频工作台，仓库最新推送时间为 2026-09-08，当前约 501 stars、102 forks，使用 TypeScript 编写并采用 AGPL-3.0-only 许可。其核心定位是“把 AI 视频的成本降下来”：用户可自由组合开放模型、会员积分、API 或本地 ComfyUI 等生成来源，在脚本、分镜、生成、剪辑的全流程中将项目、提示词和密钥保留在本机，无需账号且无遥测。Nomi 提供 25 个 MCP 工具，让 Claude Code、Codex、Cursor 等编码代理能够通过 MCP 驱动分镜、生成、编排与编辑；默认接入 APIMart 与 Kie.ai，并支持 ModelScope、Volcengine、Runway、fal、Replicate、MiniMax、ElevenLabs 等约十多个现成服务商，目前已有 66 项经由集成认证的旗舰模型条目。任意兼容 OpenAI、Anthropic、Responses 或 relay endpoint 的服务可粘贴 URL 和密钥接入，无需重新编译；本地 ComfyUI 也被视为普通服务商，可导入常规“Save”工作流，并通过与 /object\_info 的图对比提前提示缺失的自定义节点和模型文件。项目还提供“让 AI 帮你连接”的文档，指导 Codex/Claude Code 完成 relay、DeepSeek、本地 ComfyUI 或 MCP 驱动的接入。
 
-rss · arXiv cs.AI · 9月7日 04:00
+github · aqm857886159 · 9月8日 03:47
 
-**「背景」** 时间序列基础模型（TSFM）通常在大规模通用语料上预训练，并依赖自注意力骨干，但自注意力的计算成本随序列长度和变量数增加呈二次增长，且这些模型大多假设输入完全可观测。金融领域常见的却是长序列、多通道、间歇性观测的面板数据，因此通用 TSFM 难以直接适用。EXAONE 是面向金融和企业场景的系列工作，本报告是该系列扩展到时序基础模型方向的一次尝试，核心思路是用线性时间算子替代自注意力，并跨多种资产类别构建金融预训练语料。
+**「背景信息」** MCP（Model Context Protocol）是让 Claude Code、Codex、Cursor 等编码代理调用外部工具与数据的开放协议；ComfyUI 则是流行的本地节点式图像/视频生成工作流工具。此项目把两者结合起来，形成“编码代理指挥视频生产”的本地工作台，同时用“草稿→参考→成片”的工作流设计来降低视频生成成本：先用便宜或免费的模型产出分镜草图、姿态帧和参考视频，再把其中优质结果作为参考输入高质量模型，只在最后一步消耗昂贵额度。
 
-**「影响」** 对金融 AI 与时间序列建模的研究者而言，EXAONE Finance 提供了一个值得关注的新基线，其无注意力设计和掩码连续缺失增强专门针对金融数据的长序列、高维与缺失问题。由于报告摘要尚未给出 FinVerse 上的具体指标和模型细节，下一步值得关注完整技术报告中的量化对比、模型卡，以及权重或 API 是否对外开放。
+**「影响与观察点」** 对于 AI 学习者和开发者，Nomi 展示了开源本地工具如何把编码代理、MCP、ComfyUI 和多家视频模型 API 串成一条可控、低成本的生成管线，也印证了“本地优先、无遥测、让代理驱动生成后端”正在成为工具链的重要方向。由于这是仍在迭代的开源项目且当前仅有 README 和仓库元数据支持，下一步值得关注其实际 release 质量、第三方对 MCP 工具与 ComfyUI 导入能力的评测，以及社区对许可与团队协作形态的反馈。
 
-**标签**: `#finance`, `#time-series`, `#foundation-models`, `#architecture`, `#arxiv`
+**标签**: `#open-source`, `#AI video`, `#MCP`, `#local-first`, `#agent tooling`
 
 ---
 
 <a id="item-tech-news-5"></a>
-### [Iris：以超链接多跳数据管线训练的搜索智能体登上 arXiv](https://arxiv.org/abs/2609.04304) ⭐️ 7.0/10
+### [Anthropic 被曝签下 5170 亿美元算力合同，AI 基础设施竞赛再升级](https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk/) ⭐️ 7.0/10
 
-arXiv 论文介绍了两款搜索智能体 Iris-mini 与 Iris-pro，分别基于 35B-A3B 和 397B-A17B 规模训练，并公开其数据管线与训练方法。作者从网页语料的超链接结构反向构造多跳问题：先基于种子页面及其出链提炼实体图，再把非答案实体改写为描述性指代，避免模型仅靠字符串匹配解题，最后只保留参考模型无法闭卷回答、但给定证据后能解决的题目。训练上先用 SFT，再用实时搜索环境做强化学习，并且交替 SFT 与 RL，形成所谓“SFT-RL climbing”，把每轮中最难解决且最高效的轨迹回填到下一轮监督训练。在开启上下文管理时，Iris-mini 和 Iris-pro 在 BrowseComp、BrowseComp-ZH、DeepSearchQA、HLE 上分别取得 82.2/84.8/86.9/52.3 与 88.6/85.1/92.9/56.4，作者称这是各参数区间内开源搜索智能体中总体最强结果。作者计划发布模型权重，以及数据构建、训练和评估的完整配方。
+据 The Information 报道，Anthropic 在过去 11 个月里签署了价值高达 5170 亿美元的算力合同，锁定了至少 14.8 吉瓦的算力，叠加此前已有的 1 至 2 吉瓦，并正在规划自建数据中心。报道指出，Anthropic 的总规划容量可能仍低于 OpenAI 提出的 2030 年 30 吉瓦目标，但许多合同期限远超 2030 年，直接比较并不简单。营收方面，Anthropic 的年化收入据 Bloomberg 已超过 650 亿美元，而 OpenAI 在 7 月时超过 400 亿美元。Anthropic CEO Dario Amodei 在 2026 年初曾警告竞争对手不要盲目加速，称“并不真正了解自己承担的风险”，但目前 Anthropic 也在追赶扩建；OpenAI CEO Sam Altman 则反过来提醒谨慎，警告新云厂商存在“不可持续的愚蠢行为”，并认为技术进展可能让当前昂贵项目变成糟糕投资。需要注意的是，这些巨额合同数字属于媒体报道，尚未获得 Anthropic 或相关方正式确认。
 
-rss · arXiv cs.AI · 9月7日 04:00
+rss · The Decoder · 9月7日 18:12
 
-**「背景」** 搜索智能体通常以 ReAct 等方式让语言模型交替进行推理、调用搜索引擎并阅读结果，因此训练数据的质量与搜索工具的真实反馈尤为关键。Iris 的特别之处是把“从网页超链接出发构造多跳问题-筛选-监督微调-在线强化学习-再监督”的闭环节奏作为核心配方，并强调推理期上下文管理带来的收益往往大于系统之间的常规差异。论文中的“35B-A3B”通常表示总参数与单次推理激活参数规模，属于大模型部署中常见的比例设计。
+**「背景」** 前沿 AI 公司训练和运行大模型需要超大规模数据中心与芯片集群，因此近年来普遍以长期合同预先锁定算力容量，形成类似“产能军备竞赛”的基础设施竞争。Anthropic 与 OpenAI 是这一轮竞争的焦点，双方不仅比拼模型能力，也在通过百亿甚至千亿美元级算力储备争夺未来数年的训练与部署优势。这类合同远超公司当前营收能力，其经济合理性取决于 AI 需求持续增长、技术路线变化以及折旧和利用率等复杂因素。
 
-**「影响与观察点」** 这项研究为开源搜索智能体提供了一条可复现的高质量多跳数据生成与迭代训练路线，说明“数据逆向构造”加“在线搜索 RL”可以显著提升复杂检索问答能力。研究者与产品构建者下一步应关注权重与完整配方的实际开放情况，并用固定工具集、上下文限制和评判模型的条件复跑 BrowseComp 与 HLE 等基准，以验证 Iris 是否真的达到其声称的开源领先水平。
+**「影响」** 这则消息说明前沿模型公司的资本开支规模已远超营收：Anthropic 与 OpenAI 年化收入都在数百亿美元量级，但算力承诺可高达数千亿美元，基础设施投入正在成为决定行业地位的核心变量。接下来值得关注的是 Anthropic 是否披露合同规模与合作伙伴细节，以及模型效率提升或需求放缓是否会让这类超长期算力合同面临价值折损。
 
-**标签**: `#search agents`, `#reinforcement learning`, `#large language models`, `#data pipeline`, `#arXiv`
+**标签**: `#Anthropic`, `#compute infrastructure`, `#AI industry`, `#OpenAI`, `#data centers`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [JEPA 式世界模型的新失败模式：物理表示惰性及傅里叶辅助头方案](https://arxiv.org/abs/2609.04264) ⭐️ 7.0/10
+### [OpenBMB 发布 MiniCPM5-2B：宣称 4B 以下开源模型 AAII v4.2 最高分](https://www.reddit.com/r/LocalLLaMA/comments/1w9skjz/minicpm52b_release_day/) ⭐️ 7.0/10
 
-arXiv 论文 2609.04264 识别出潜在世界模型的一类新失败模式“物理表示惰性”（physical representation laziness）：在高度动态环境中，模型潜在状态虽未坍缩，却无法表示关键物理属性，导致下游规划普遍失败。作者提出在训练时添加轻量级“傅里叶辅助头”（Fourier auxiliary head）进行辅助监督，以强制潜在空间具备物理信息结构，且不增加推理成本，并可推广到任意环境。实验表明，该方法显著提升了基线 LeWorldModel（LeWM）在动态环境中的规划成功率，在基线未出现物理表示惰性的其他环境中也有适度提升。作者还观察到，规划性能提升伴随着潜在状态与关键物理属性之间更高的相关性，说明该辅助头既能在物理层面结构化潜在表示，也有助于规划。在低数据场景下，该辅助监督对成功率的提升尤为明显，体现出更好的数据效率。需要关注的是，当前信息来源为 arXiv 摘要，具体实验设置、数据集与基准细节尚需在完整论文中核实。
+OpenBMB 在 Reddit 发布帖中宣布推出 MiniCPM5-2B，并表示其在 Artificial Analysis Intelligence Index v4.2 上得到 15 分，是 4B 参数及以下开放权重模型中得分最高者。帖子附上了 Hugging Face 模型页和 GitHub 仓库链接，但没有提供技术细节或第三方验证，因此上述得分目前属于发布方的宣称。MiniCPM5-2B 延续了 OpenBMB 开源小模型的路线，试图在 2B 规模上提供更强的基础能力。如果该基准结果得到复现，将再次说明小参数开放模型的能力上限在被推高；当前最值得关注的是 Hugging Face 模型卡、具体评测构成以及独立评测者的复现结果。
 
-rss · arXiv cs.LG · 9月7日 04:00
+reddit · r/LocalLLaMA · /u/Equivalent-Grass-527 · 9月7日 13:43
 
-**「背景知识」** JEPA（联合嵌入预测架构）类世界模型的核心思路是放弃像素空间的预测，改为在潜在表示空间中执行预测与规划。为增强这种范式，较新的架构如 LeWorldModel（LeWM）会联合训练编码器和预测器，并使用 SIGReg 之类正则化手段防止表示坍缩；坍缩指所有输入被映射到相似的潜在表示从而丢失区分信息。本论文指出，即使防住了传统坍缩，模型仍可能出现“物理表示惰性”，即保留可区分信息却丢掉速度、位置等对规划关键的物理量，这是此前未单独区分的另一类潜在表示退化问题。
+**「背景」** MiniCPM 是 OpenBMB 维护的开源紧凑大模型系列，主打以较小参数量实现端侧或低成本部署；此次发布的 MiniCPM5-2B 是该系列 2B 规模的新版本。Artificial Analysis Intelligence Index（当前版本 v4.2）是第三方 Artificial Analysis 用来横向比较大模型智能水平的综合指标，通常覆盖语言、数学、推理、代码等任务方向。发布方用“同规模开源最高分”作为宣传点，体现了小模型赛道仍以“用更少参数接近大模型能力”为核心竞争点。
 
-**「影响与关注点」** 对世界模型研究者和具身智能开发者而言，这项工作的价值在于用训练时辅助头直接约束潜在空间承载物理量，既提升规划成功率又提升数据效率，且不改变推理复杂度。由于目前可见信息来自摘要且结果未完整展示，下一步应关注论文完整版本中的实验基准、动态环境设置、与现有正则化方法的对比，以及开源代码或模型权重是否发布。
+**「影响」** 对开发者与学习者而言，这类“小参数刷高基准”的发布意味着低成本和端侧部署可能获得更强的基础模型，但 15 分是否具有跨评测的可比性仍需更多验证。下一步应查看模型卡中的许可、训练配置和示例输出，并关注 Artificial Analysis 的独立复测，以及其他基准或任务上的社区反馈。
 
-**标签**: `#world models`, `#latent representation learning`, `#JEPA`, `#AI research`, `#planning`
+**标签**: `#open-source`, `#model release`, `#benchmark`, `#small language model`
 
 ---
 
 <a id="item-tech-news-7"></a>
-### [Anthropic 15 亿美元和解金分配起争议：作者指出版商与经纪公司越权索赔](https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/) ⭐️ 6.0/10
+### [ModelScope EvalScope 评测框架：v1.11.0 推出版本化评测与多项新基准](https://github.com/modelscope/evalscope) ⭐️ 6.0/10
 
-Anthropic 去年达成的 15 亿美元版权集体诉讼和解已进入付款阶段，但不少作者本周收到通知称，第三方正在对其应得款项提出主张。和解条款覆盖近 50 万种图书，每部被侵权的作品作者可获 3000 美元；若图书仍由传统出版社在售，金额由作者与出版社平分，自费出版或版权已回归作者的图书则应由作者全额领取。作家 April Henry 举例说，HarperCollins 对她一部 17 年前已回归版权的作品索要款项，同一天还把她列为员工；Writers Beware 博主 Victoria Strauss 表示收到大量同类投诉，包括出版社对已无权利的图书索赔、以及要求全额而非 50%分成。她还指出部分文学经纪公司也在主张分成，而经纪公司并非版权持有人。Authors Guild 首席执行官 Mary Rasenberger 认为这更像记录混乱而非恶意，但 Strauss 与多份报告都提示问题可能具有系统性；作者需要关注权利回归日期是否早于 2022 年 8 月 10 日这一“下载日期”，以决定能否 100%领取。
+ModelScope 社区的 EvalScope 评测框架仍处于活跃维护状态：GitHub 显示最新推送时间为 2026-09-08，当前约 3385 stars、475 forks、37 个 open issues，主语言为 Python。README 将其定位为“一键”启动的大模型评测框架，覆盖 LLM、VLM、Embedding/Reranker、AIGC 等模型类型的能力评测、推理性能压测与结果可视化 Web Dashboard。更新说明显示，2026-08-24 发布的 v1.11.0 引入了“已发布评测版本”用于可复现基准结果，同时改进了报告语义、强化了未完成运行的处理，并加强多模态媒体加载和任务配置校验。2026-08-10 的更新一次加入 AutomationBench、JobBench、MiniWoB、OmniDocBench-v1.6、PerceptionBench、ScreenSpot-Pro、PLawBench、PMC-VQA、HiPhO、LogicVista 与 CC-OCR-V2 等基准。框架内置 MMLU、C-Eval、GSM8K 等评测集，并集成 OpenCompass、VLMEvalKit、RAGEval 等多个后端；Agent 评测模式支持 GSM8K、AIME、SWE-bench Agentic 的受控 AgentLoop、Docker 沙箱以及逐样本 Agent Trace 记录与可视化。
 
-rss · TechCrunch AI · 9月6日 20:47
+github · modelscope · 9月8日 03:49
 
-**「背景」** 这起和解源于针对 Anthropic 在训练 AI 模型时使用受版权保护作品的集体诉讼。法官此前裁定，将受版权材料用于 AI 训练属于合理使用，但复制盗版内容不属于合理使用；这一区分使和解仅覆盖“盗版”来源的作品。协议在近期 7 月获最终批准，之后开始向作者付款，而传统出版合同中的版税分成规则与“权利回归”概念成为此次分配争议的核心。
+**「背景」** EvalScope 是 ModelScope 社区发布的统一化开源评测框架，目标是降低大模型评测的工程成本，让开发者通过命令行完成能力评测、性能压力测试和结果可视化。它一方面连接 MMLU、C-Eval、GSM8K 等行业常用基准，另一方面对接 OpenCompass、VLMEvalKit、RAGEval 这类成熟评测后端，便于团队在同一个界面中比较不同模型以及评测不同模态与 Agent 场景。
 
-**「影响与观察点」** 对 AI 行业而言，这次分配争议说明训练数据版权和解不仅涉及模型训练合法性，还会牵动作者、出版社和经纪公司之间模糊的权属关系。接下来应关注 Anthropic 或结算管理方是否修正错误主张、作者申诉机制的实际处理效率，以及 Books3 等受版权训练语料相关和解是否会对权利持有人身份作出更严格界定。
+**「影响与看点」** 对 AI 开发者、研究者与产品构建者来说，EvalScope 的持续迭代表明开源评测工具正在从单一分数报告走向可复现、含逐样本 Agent Trace 的标准化评测链条；需要为自己的 OpenAI 兼容 API 或本地模型做快速评测，可以参考 README 中 \`pip install evalscope\` 加 \`evalscope eval --eval-type openai\_api --datasets gsm8k --limit 5\` 的示例。下一步值得关注 v1.11.0 版本化评测的具体使用限制，以及新增基准对多模态、文档理解、浏览器 Agent 与数学推理场景的实际覆盖效果。
 
-**标签**: `#copyright`, `#Anthropic`, `#legal`, `#AI training`, `#settlement`
+**标签**: `#LLM evaluation`, `#open-source`, `#benchmarking`, `#ModelScope`, `#Python`
 
 ---
 
 <a id="item-tech-news-8"></a>
-### [曝 Kalanick 的 Atoms 正进入 Robotaxi 领域，Uber 已投资 1 亿美元](https://techcrunch.com/2026/09/06/travis-kalanicks-atoms-might-be-getting-into-the-robotaxi-business/) ⭐️ 6.0/10
+### [Anthropic 15 亿美元和解金分配起风波：作者抗议出版商与经纪公司越权分成](https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/) ⭐️ 6.0/10
 
-据 TechCrunch 转述《金融时报》报道，Travis Kalanick 的初创公司 Atoms 正准备大举招聘并进行收购，目标是成为自动驾驶行业的主要玩家，而 Robotaxi 是其中的重要方向。Atoms 已与 Uber 讨论如何使用其 Robotaxi 技术，Uber 此前已向 Atoms 投资 1 亿美元，这一投资额已获 TechCrunch 确认。今年夏初，Atoms 刚宣布完成由 Andreessen Horowitz 领投的 17 亿美元融资；Kalanick 曾用“未完成的事业”形容这轮融资，且消息人士强调 Robotaxi 并非 Atoms 的全部计划。该方向也与 Atoms 收购前 Uber 自动驾驶负责人 Anthony Levandowski 创办的 Pronto 公司相吻合，但目前仍为媒体早期报道，技术细节与最终合作形式尚未公布。
+Anthropic 此前就版权集体诉讼达成的 15 亿美元和解已在 7 月获最终批准，涉及近 50 万个书目的作者，每部被认定遭盗版的作品可获 3000 美元；仍在传统出版社渠道销售的作品由作者与出版方对半分成，自出版或版权已回归作者的书籍则应由作者独得。但作者本周陆续收到邮件，发现出版方和经纪公司正以不同名目争夺本应属于作者的份额。例如悬疑作家 April Henry 称，HarperCollins 对其一部约 17 年前已权利回归的作品提出主张，并在同一天把她列为该社雇员；作者权益博客 Writers Beware 汇总投诉指，出版社既对已无权利的旧书伸手，也在只能分 50%的情况下索要 100%。多位抱怨者认为这类错误数量大且重复出现，更像是系统性问题而非偶发记录失误；但作者协会 CEO 认为这可能源于糟糕的账目记录和混乱的流程，而非出版社蓄意侵害。对 AI 行业而言，这显示大模型训练数据版权和解在落地执行阶段，数据的权利归属、历史链条和支付分配仍会引发新争议。
 
-rss · TechCrunch AI · 9月6日 16:45
+rss · TechCrunch AI · 9月6日 20:47
 
-**「背景」** Travis Kalanick 是 Uber 的联合创始人与前 CEO，Atoms 是他目前的创业公司；该公司今年夏初获得 Andreessen Horowitz 领投的 17 亿美元融资。Robotaxi 是将自动驾驶技术直接应用于出行服务的落地场景，Uber 此前已与多家自动驾驶公司合作，推动无人驾驶车队接入其平台。Anthony Levandowski 曾领导 Uber 自动驾驶项目，后因窃取商业机密获刑并获总统赦免；他创办的矿山自动驾驶公司 Pronto 已被 Atoms 收购。
+**「背景」** 这起事件的背景是 Anthropic 因使用受版权保护的书籍训练大语言模型而被作者提起集体诉讼；法院认定用版权材料训练 AI 模型本身可适用合理使用，但复制盗版来源的作品并不合法，从而促成这份和解。和解金按作品数量统一支付，并区分在印传统出版图书与自出版或权利回归图书，因此“权利是否已回归作者”成为分配关键。
 
-**「影响与看点」** 如果 Atoms 与 Uber 达成深度合作，意味着又一家具备大规模融资能力和创始人背景的公司进入 Robotaxi 产业链，可能影响 Uber 平台未来接入无人驾驶车队的供应商格局。由于目前尚无技术方案或官方路线图，下一步应关注 Atoms 的正式公告、招聘与并购进展，以及 Uber 是否披露更具体的合作关系或追加投资。
+**「影响」** 对 AI 学习者、开发者和产品方而言，本案提醒：训练数据的版权治理不只停在判决或和解金额，数据溯源、版权元数据和历史合同记录会直接决定补偿归属。下一步可关注和解管理方与出版社的更正声明、作者申诉机制的实际执行情况，以及是否出现对经纪公司参与分配的进一步限制。
 
-**标签**: `#robotaxi`, `#autonomous vehicles`, `#Atoms`, `#Travis Kalanick`, `#Uber`
+**标签**: `#copyright`, `#Anthropic`, `#settlement`, `#training data`, `#AI industry`
+
+---
+
+<a id="item-tech-news-9"></a>
+### [EXAONE Finance：面向金融时序预测的注意力无关基础模型](https://arxiv.org/abs/2609.04239) ⭐️ 6.0/10
+
+arXiv 论文《EXAONE Forecast for Finance》发布了一个名为 EXAONE Finance 的金融时序基础模型（TSFM），专门面向金融预测场景。该模型采用注意力无关架构，不依赖自注意力，而是用两个线性时间算子完成时序与变量信息融合：因果一维卷积处理时间维，分组感知池化的多层感知机（MLP）处理变量维，从而避免自注意力在序列长度和变量数量上的二次方计算成本。针对金融数据普遍存在的缺失观测问题，论文提出掩码上下文增强（masked context augmentation），在训练时向模型展示连续缺失片段，以增强对缺失数据的鲁棒性。预训练语料覆盖权益、外汇、商品、加密资产、固定收益和宏观经济指标等资产类别；论文声称 EXAONE Finance 在 FinVerse 金融预测基准上取得最优表现，并在点预测精度、截面资产排序和组合盈利性三个评估层面均排名第一。需要注意的是，当前来源仅给出摘要与定性结论，未包含具体得分、规模、参数数量或可复现细节。
+
+rss · arXiv cs.AI · 9月7日 04:00
+
+**「背景信息」** 时间序列基础模型（TSFM）通过在大量时间序列数据上进行预训练，期望在未见数据集上获得较强的零样本预测能力。此前多数 TSFM 沿用类似大语言模型的自注意力骨干网络，其计算成本随序列长度和通道数增加而快速上升，并且通常假设输入完整无缺失；而金融实践中常见的是长时间跨度、多资产通道、非规则且大量缺失的数据面板。EXAONE Finance 的定位正是针对这些金融数据特性设计架构，并用金融领域专属语料进行预训练，以弥补通用 TSFM 在金融动态规律上的不足。
+
+**「影响与看点」** 对金融机器学习与时间序列基础模型的研究者而言，EXAONE Finance 提供了一个“用线性算子替换自注意力”且聚焦缺失数据处理的具体架构方向，值得关注它如何在长序列多资产数据上平衡效率与效果。由于论文摘要尚未提供基准数值和模型开放信息，下一步应关注完整技术报告、模型卡或权重是否发布，以及第三方复现或 FinVerse 排行榜上的具体分数来验证其“三榜第一”的声称。
+
+**标签**: `#financial forecasting`, `#time series foundation model`, `#arXiv technical report`, `#attention-free architecture`
+
+---
+
+<a id="item-tech-news-10"></a>
+### [AI 招聘综述：从匹配模型到智能体工作流](https://arxiv.org/abs/2609.04286) ⭐️ 6.0/10
+
+该综述来自 arXiv 预印本 2609.04286，系统梳理了 AI 招聘从简单的画像匹配和排序，演进为由检索证据、比较候选人并执行动作的多阶段智能体工作流。作者通过截至 2026 年 7 月 23 日的检索编码和 2026 年 9 月 2 日的定向更新，分析了 40 个代表性研究作品，并声明这是一项非患病率估计的叙事性系统综述。综述概括了三组关键转变：从相似度匹配转向互为适配性判断、从单一模型转向复合工作流、从离线预测转向以证据与生产力为导向的评估。作者区分了字段、配对、列表、案例、轨迹和结果六个层级的证据，指出行为标签混淆了曝光、偏好与资质，私有和合成数据限制了外部效度，而只看最终输出分数会掩盖流水线中的失败。该文还强调，在所编码的研究范围内，没有一项工作直接评估隐私，也没有一项同时评估效用、公平、隐私和安全，因而提出从评估证据到最强可辩护结论的分阶段映射。结论认为，AI 招聘的进展应以工作流是否检索到正确证据、保留不确定性、支持可质疑决策，并在明确成本与风险约束下改善结果来衡量。
+
+rss · arXiv cs.AI · 9月7日 04:00
+
+**「背景知识」** AI 招聘的早期研究集中于简历排序、人岗匹配和候选人与岗位的相似度计算，通常以离线排名指标衡量算法质量。近年来，随着大语言模型和工具调用能力的发展，招聘系统越来越多地呈现为检索、理解文档、面试、联络候选人和人工交接等步骤组成的智能体工作流。这篇综述采用“系统化叙事综述”方法，即按明确编码协议对文献进行结构化整理并提炼趋势，而不是像元分析那样给出统计合并效应。文中所用“field-/pair-/list-/case-/trajectory-/outcome-level evidence”的提法，是为了区分证据来自单个文档字段、人岗配对、候选人列表、个案流程、完整运行轨迹还是最终结果。
+
+**「影响与展望」** 对研究者和招聘产品开发者而言，这项综述的提醒是：单纯看录取率、命中率等最终输出分数，无法判断多阶段智能体流水线中由检索、判断和交接环节引入的偏差；下一步应关注是否有配套的评估基准、审计框架或治理标准出现，而非等待某个新的模型发布。该文是二手综述，并非新方法或实验突破，但它为“AI 招聘智能体如何治理”提供了可操作的评估分层思路。
+
+**标签**: `#AI recruitment`, `#agents`, `#LLM`, `#review`, `#governance`
 
 ---
