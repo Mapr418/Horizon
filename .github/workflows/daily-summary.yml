@@ -47,7 +47,7 @@ jobs:
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: uv run horizon --hours 72
+        run: uv run horizon --hours 24 --fallback-hours 72 --min-body-items 3
 
       - name: Save downloadable reports
         uses: actions/upload-artifact@v4

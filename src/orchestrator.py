@@ -217,11 +217,18 @@ class HorizonOrchestrator:
         )
         self.last_fetch_report: Optional[FetchReport] = None
 
-    async def run(self, force_hours: int = None) -> None:
+    async def run(
+        self,
+        force_hours: int = None,
+        fallback_hours: int = None,
+        min_body_items: int = 0,
+    ) -> None:
         """Execute the complete workflow.
 
         Args:
             force_hours: Optional override for time window in hours
+            fallback_hours: Optional wider window when body-backed content is sparse
+            min_body_items: Minimum body-backed items before fallback is used
         """
         self.console.print(
             f"[bold cyan]{self.icons['start']} Horizon - Starting aggregation...[/bold cyan]\n"
@@ -245,42 +252,33 @@ class HorizonOrchestrator:
                 f"{since.strftime('%Y-%m-%d %H:%M:%S')}\n"
             )
 
-            # 2. Fetch content from all sources
-            all_items = await self.fetch_all_sources(since)
-            self.console.print(
-                f"{self.icons['fetched']} Fetched {len(all_items)} items from all sources\n"
-            )
+            # 2. Fetch content and keep only body-backed items.
+            all_items, merged_items, body_backed_items = await self.fetch_body_backed_window(since)
 
-            if self.last_fetch_report and self.last_fetch_report.all_failed:
-                raise RuntimeError(self.last_fetch_report.failure_message())
-
-            if not all_items:
-                self.console.print("[yellow]No new content found. Exiting.[/yellow]")
-                return
-
-            # 3. Merge cross-source duplicates (same URL from different sources)
-            merged_items = self.merge_cross_source_duplicates(all_items)
-            if len(merged_items) < len(all_items):
+            requested_hours = force_hours or self.config.collection.time_window_hours
+            if (
+                fallback_hours
+                and min_body_items > 0
+                and len(body_backed_items) < min_body_items
+                and requested_hours < fallback_hours
+            ):
                 self.console.print(
-                    f"{self.icons['merge']} Merged "
-                    f"{len(all_items) - len(merged_items)} cross-source duplicates "
-                    f"→ {len(merged_items)} unique items\n"
+                    "[yellow]Only "
+                    f"{len(body_backed_items)} body-backed items found in {requested_hours}h; "
+                    f"expanding to {fallback_hours}h.[/yellow]\n"
                 )
-
-            # 4. Keep only items backed by source body, README, release notes, comments, or abstracts.
-            body_backed_items = [
-                item for item in merged_items if self.has_body_backing(item)
-            ]
-            skipped_for_body = len(merged_items) - len(body_backed_items)
-            if skipped_for_body:
+                since = datetime.now(timezone.utc) - timedelta(hours=fallback_hours)
                 self.console.print(
-                    f"[yellow]Skipped {skipped_for_body} title-only or thin items before AI analysis[/yellow]\n"
+                    f"{self.icons['date']} Fetching content since: "
+                    f"{since.strftime('%Y-%m-%d %H:%M:%S')} (fallback)\n"
                 )
+                all_items, merged_items, body_backed_items = await self.fetch_body_backed_window(since)
+
             if not body_backed_items:
                 self.console.print("[yellow]No body-backed content found. Exiting.[/yellow]")
                 return
 
-            # 5. Analyze with AI
+            # 3. Analyze with AI
             analyzed_items = await self.analyze_items(body_backed_items)
             self.console.print(
                 f"{self.icons['ai']} Analyzed {len(analyzed_items)} items with AI\n"
@@ -420,6 +418,41 @@ class HorizonOrchestrator:
             hours = self.config.collection.time_window_hours
             since = datetime.now(timezone.utc) - timedelta(hours=hours)
         return since
+
+
+    async def fetch_body_backed_window(
+        self,
+        since: datetime,
+    ) -> tuple[List[ContentItem], List[ContentItem], List[ContentItem]]:
+        """Fetch one time window, merge duplicates, and drop title-only items."""
+        all_items = await self.fetch_all_sources(since)
+        self.console.print(
+            f"{self.icons['fetched']} Fetched {len(all_items)} items from all sources\n"
+        )
+
+        if self.last_fetch_report and self.last_fetch_report.all_failed:
+            raise RuntimeError(self.last_fetch_report.failure_message())
+
+        if not all_items:
+            return [], [], []
+
+        merged_items = self.merge_cross_source_duplicates(all_items)
+        if len(merged_items) < len(all_items):
+            self.console.print(
+                f"{self.icons['merge']} Merged "
+                f"{len(all_items) - len(merged_items)} cross-source duplicates "
+                f"→ {len(merged_items)} unique items\n"
+            )
+
+        body_backed_items = [
+            item for item in merged_items if self.has_body_backing(item)
+        ]
+        skipped_for_body = len(merged_items) - len(body_backed_items)
+        if skipped_for_body:
+            self.console.print(
+                f"[yellow]Skipped {skipped_for_body} title-only or thin items before AI analysis[/yellow]\n"
+            )
+        return all_items, merged_items, body_backed_items
 
     async def fetch_all_sources(self, since: datetime) -> List[ContentItem]:
         """Fetch content from all configured sources.

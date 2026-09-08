@@ -315,7 +315,7 @@
     }
   },
   "collection": {
-    "time_window_hours": 72
+    "time_window_hours": 24
   },
   "digest": {
     "max_items": 10,

@@ -43,6 +43,8 @@ def main():
 
     parser = argparse.ArgumentParser(description="Horizon - AI-Driven Information Aggregation System")
     parser.add_argument("--hours", type=int, help="Force fetch from last N hours")
+    parser.add_argument("--fallback-hours", type=int, help="Expand to this many hours when body-backed content is too sparse")
+    parser.add_argument("--min-body-items", type=int, default=0, help="Minimum body-backed items required before using fallback-hours")
     add_data_dir_arguments(parser)
     add_log_level_argument(parser)
     args = parser.parse_args()
@@ -102,7 +104,13 @@ def main():
 
         # Create and run orchestrator
         orchestrator = HorizonOrchestrator(config, storage, console=console)
-        asyncio.run(orchestrator.run(force_hours=args.hours))
+        asyncio.run(
+            orchestrator.run(
+                force_hours=args.hours,
+                fallback_hours=args.fallback_hours,
+                min_body_items=args.min_body_items,
+            )
+        )
 
     except KeyboardInterrupt:
         console.print(f"\n[yellow]{icons['warning']} Interrupted by user[/yellow]")
