@@ -5,108 +5,140 @@ date: 2026-09-08
 lang: zh
 ---
 
-> 从 8 条内容中筛选出 6 条重要资讯。
+> 从 19 条内容中筛选出 8 条重要资讯。
 
 ---
 
 **AI 前沿简讯**
-1. [OpenAI 开始推出 Astra 模型，发布前先警告其高级网络能力](#item-tech-news-1) ⭐️ 9.0/10
-2. [Anthropic 发布形式化费马大定理相关文章：AI 数学推理的信号](#item-tech-news-2) ⭐️ 8.0/10
-3. [Anthropic 发布面向零售商的 AI Agent 蓝图，瞄准假日购物季](#item-tech-news-3) ⭐️ 7.0/10
-4. [OpenAI 首席科学家主张放慢 AI 研究，尚待完整信息确认](#item-tech-news-4) ⭐️ 4.0/10
-5. [OpenAI 内部“研究助手”：用 AI 加速自身研发的一则早期信号](#item-tech-news-5) ⭐️ 4.0/10
-6. [OpenAI 自称实现自我改进 AI 里程碑，细节待披露](#item-tech-news-6) ⭐️ 3.0/10
+1. [Anthropic 据报签下最高 5170 亿美元算力合同，算力竞赛持续升级](#item-tech-news-1) ⭐️ 8.0/10
+2. [Harbor Adapters：为 80+ 智能体评测基准提供统一基础设施与 Harbor-Index 精选集](#item-tech-news-2) ⭐️ 8.0/10
+3. [GPT-6 Astra 无人工干预自主通关《传送门》，全程约 23 小时 43 分钟](#item-tech-news-3) ⭐️ 7.0/10
+4. [EXAONE 发布面向金融时序预测的无注意力基础模型 EXAONE Finance](#item-tech-news-4) ⭐️ 7.0/10
+5. [Iris：以超链接多跳数据管线训练的搜索智能体登上 arXiv](#item-tech-news-5) ⭐️ 7.0/10
+6. [JEPA 式世界模型的新失败模式：物理表示惰性及傅里叶辅助头方案](#item-tech-news-6) ⭐️ 7.0/10
+7. [Anthropic 15 亿美元和解金分配起争议：作者指出版商与经纪公司越权索赔](#item-tech-news-7) ⭐️ 6.0/10
+8. [曝 Kalanick 的 Atoms 正进入 Robotaxi 领域，Uber 已投资 1 亿美元](#item-tech-news-8) ⭐️ 6.0/10
 
 ---
 
 ## AI 前沿简讯
 
 <a id="item-tech-news-1"></a>
-### [OpenAI 开始推出 Astra 模型，发布前先警告其高级网络能力](https://news.google.com/rss/articles/CBMib0FVX3lxTE1iUlVPODl5bTBweko3Y1pHY1Y3RzZua3FHak9hVm5aa3hZWmNQcmVrVW1VMHdXME04cDJITVM4TmlBdUZWZ3JIQlgtdUZPMjlEd3pUdmNkV3BsT3FRMTEwNm1GcnRJU2NXeElBYVZhc9IBdEFVX3lxTE9NYUtIZlJ6NHoxSGladzc0bkc5Tm8xWjJkcHdJeHJHeUVfUlZ4b2ZoTC1ueE9HaEI4ZFZoUXAxUldGZHYweTd2ZEhtUkJiaFFid0FZdkdRS2Z1OV9NY2tzb3BKQW5wZGh0SER5aTlOdm9sbWVD?oc=5) ⭐️ 9.0/10
+### [Anthropic 据报签下最高 5170 亿美元算力合同，算力竞赛持续升级](https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk/) ⭐️ 8.0/10
 
-据 CNBC 报道，OpenAI 已开始逐步推出代号 Astra 的模型，并且 OpenAI 在推出前曾提醒该模型具备高级网络（cyber）能力。目前公开信息仍停留在标题层面：官方尚未同步给出模型卡、技术报告、API 可用性或具体安全评估细节。若报道属实，这意味着 OpenAI 在发布前沿模型时采用了“先提示风险、再灰度上线”的路径，把网络安全风险作为发布前置说明的一部分。接下来应关注 OpenAI 官方发布页或后续技术文档，确认 Astra 的具体能力、访问渠道，以及其网络安全评估的测试方法与缓解措施。
+据《The Information》报道，自 2025 年 10 月以来，Anthropic 在 11 个月内签下最高可达 5170 亿美元的计算合同，锁定至少 14.8 吉瓦的新增算力；此前公司只有 1 至 2 吉瓦的算力，并正规划自建数据中心。其总规划容量很可能仍低于 OpenAI 的 2030 年 30 吉瓦目标，但大量合同期限远晚于 2030 年，直接比较并不容易。财务层面，Anthropic 据彭博社口径年化收入已超过 650 亿美元，OpenAI 在 2025 年 7 月约为 400 亿美元；两家公司都还无法仅凭收入覆盖这些长期承诺。叙事反转之处在于，Anthropic CEO Dario Amodei 2026 年初曾警告竞争对手投资过快、&quot;并不真正理解所承担的风险&quot;，现在 Anthropic 反而在猛追算力；OpenAI CEO Sam Altman 则警告所谓&quot;新型云提供商&quot;存在&quot;不可持续的愚蠢行为&quot;，并认为技术进步可能让今天昂贵的项目变成坏赌注。目前这一信息属于媒体报道，合同细节与官方确认仍然缺失。
 
-google\_news · CNBC · 9月3日 18:00
+rss · The Decoder · 9月7日 18:12
 
-**「背景」** OpenAI 是通用人工智能研究公司，旗下模型以 GPT 系列和 o 系列为代表，通常通过 ChatGPT 与 API 分层开放。Astra 在此是本次被报道开始部署的 OpenAI 模型代号；在大型前沿模型发布中，“开始灰度推出”往往意味着并非一次性全量上线，而是先向部分用户或区域开放，再根据运行情况扩大范围。理解这条新闻需要区分“OpenAI 自行提出的风险提示”和“独立第三方已证实的攻击能力”——前者是发布方声明，后者仍需后续评测验证。
+**「背景」** Anthropic 是 Claude 系列模型背后的 AI 实验室，OpenAI 是其主要竞争对手；两者竞争的核心之一是可容纳大量 GPU 的数据中心。这里的&quot;吉瓦&quot;是电力容量单位，行业常以此估算数据中心规模和可部署的芯片数量，而 5170 亿美元合同属于长期基础设施承诺，并非当期收入。理解了这一点，Anthropic 与 OpenAI 的目标差异（现有 1 至 2 吉瓦加上新增 14.8 吉瓦，对照 2030 年 30 吉瓦）反映的是两家前沿模型公司对未来数年训练与推理算力的不同押注。
 
-**「影响」** 对读者而言，值得追踪的信号是 Astra 是否会进入 ChatGPT 或 API、OpenAI 是否会公布独立的红队与网络安全评测结果，以及安全提示究竟对应何种具体能力，例如自动化漏洞利用或辅助社工。若 Astra 确实面向广泛用户开放，其网络能力的安全边界将成为开发者评估接入风险的重要依据。
+**「影响」** 对开发者和行业观察者而言，这说明前沿模型公司的竞争门槛已经从算法与排行榜延伸到万亿美元级能源和算力合约，后续资本开支可能影响云服务价格与模型商业化方式。下一步应关注两家公司正式披露的融资与折旧安排、实际开工的算力规模，以及 Amodei 和 Altman 对过度投资的警告是否会被模型效率提升或盈利现实所证明。
 
-**标签**: `#OpenAI`, `#model release`, `#cyber safety`, `#frontier AI`, `#Astra`
+**标签**: `#Anthropic`, `#compute infrastructure`, `#AI industry`, `#Dario Amodei`, `#OpenAI`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Anthropic 发布形式化费马大定理相关文章：AI 数学推理的信号](https://news.google.com/rss/articles/CBMidkFVX3lxTFAyWFpGbGlCLVpoN2ZBUGs1UUZNSXJDaHNZNWZoV0g1RFVLc3BKbi1Nc2xVUWZ6SWZPR2JsanI3X1BIb25vZURqckE0Q1ltM1U3RnZXRkR1STVYei1VQ00tenotVjhNS0FfV2lIQ25WTXY5VlRPamc?oc=5) ⭐️ 8.0/10
+### [Harbor Adapters：为 80+ 智能体评测基准提供统一基础设施与 Harbor-Index 精选集](https://arxiv.org/abs/2609.04298) ⭐️ 8.0/10
 
-据 Google News 收录的 RSS 条目，Anthropic 官网出现了一篇题为《Formalizing Fermat&\#x27;s Last Theorem》的文章。由于源内容只提供了标题和链接，目前无法确认这篇文章是否宣布 Claude 已在证明助手中完整形式化费马大定理的证明，还是展示阶段性的研究进展。标题本身出现在 Anthropic 官方渠道，说明该实验室正在把“数学定理的形式化验证”作为对外发布的重要方向；这类工作通常要求模型把自然语言数学推理转换为机器可检查的步骤，因此直接检验长链推理与严格逻辑约束能力。下一步应关注文章正文是否给出所用模型版本、形式化覆盖范围、人工介入程度或第三方复现结果；在细节公开之前，不应把“形式化 FLT”解读为模型已完全独立完成证明。
+该 arXiv 预印本提出 Harbor Adapters，一套统一的基础设施，通过适配器将超过 80 个智能体评测基准改造为可评估任意智能体的统一界面，并用严格代码审查与 parity 实验验证适配质量。作者据此执行了大规模评测：8 个覆盖不同能力档次的模型在 54 个基准上运行，每个模型均在 Terminus-2 与某个原生 harness（共有 3 种）下测试。在适配后的基准池基础上，研究团队经过难度筛选、AI 与人工审计以及“审计-修复”循环，整理出 Harbor-Index 精选元数据集：包含来自 29 个基准的 82 个困难且多样的高质量任务。结果显示评测难度充足：没有任何“模型-运行环境”配置的通过率超过 30%，最强配置 GPT-5.5 with Codex 达到 28.0%。论文称适配器、评测结果、深度分析和 Harbor-Index 都将作为开源工件发布，用于更可靠、更全面的语言模型智能体评测。
 
-google\_news · anthropic.com · 9月4日 18:35
+rss · arXiv cs.AI · 9月7日 04:00
 
-**「背景」** 费马大定理指出，当 n 大于 2 时，不存在正整数 a、b、c 满足 a 的 n 次方加上 b 的 n 次方等于 c 的 n 次方。该定理由 Andrew Wiles 于 1994 年给出完整证明，证明过程涉及椭圆曲线、模形式等深层数学工具，因此被视作形式化验证的极高难度目标。所谓形式化证明，是把证明输入 Lean 这类交互式证明助手，使每一条推理规则都由机器校验；如果 AI 能辅助完成这项工作，将是数学推理能力和形式化数学库建设的重要里程碑。目前源内容没有说明 Anthropic 采用哪一种证明系统或具体形式化范围。
+**「背景」** 智能体评测的成本通常来自基准自带的复杂软件环境和 agent 工具调用框架；每个新基准都要单独适配，导致评测规模受限、可比性差。Harbor Adapters 正为此提供可复用的中间层，而 Harbor-Index 是从 80+ 基础中筛选出的 82 个任务，定位是“保留大规模评测难度但运行开销可承担”的元数据集。文中 Terminus-2 是评测使用的执行框架之一，与各模型的原生 harness 共同决定最终通过率。
 
-**「影响」** 对数学、AI 推理和形式化验证方向的学习者与研究者来说，这是一个值得追踪的信号，但证据还非常早期。接下来应直接阅读 Anthropic 官网正文，查看其中是否披露具体技术方案、模型版本、可复现代码或第三方评估；如果只有演示性结论而没有可复现细节，则需要保持谨慎。
+**「影响与下一步关注点」** 对研究者和智能体产品团队，这项工作的直接价值是降低新增基准的接入成本，并给出一种用低预算精选任务集观察智能体能力与失败模式的方式。接下来值得关注开源适配器与 parity 实验的实际发布、Harbor-Index 任务筛选与审计细节，以及社区用更多模型复现这一“通过率上限在 30% 以下”的对比结果。
 
-**标签**: `#AI for mathematics`, `#formal verification`, `#Anthropic`, `#Claude`, `#Lean`
+**标签**: `#agentic evaluation`, `#benchmarks`, `#AI agents`, `#evaluation infrastructure`, `#research paper`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [Anthropic 发布面向零售商的 AI Agent 蓝图，瞄准假日购物季](https://news.google.com/rss/articles/CBMi1gFBVV95cUxOZnpYSkJQNF9FY2pHYXBETVkzdkdMRGhfLVU4ZVZ6MmhRSkRxSGlhYUktc0RpOFhxMEZ4NG4yaW9TdGZJMU80OG9UVG9xc0JKRzVCb21UZTJJZjZoMi1ONWdVT2dCUXNRRi1QZ3RFVnp2QnZRa3hNUFB0QnNGNV9fUGxmckttdXFjX2JSUEljSjFMRnNoSmFoT2Z4U3ctUHoweWVnQnlCYUhaZ1FCd1c5TXBHZUVEUTdGRXlQcFVhZ1lwZTRMYjk2QXRpbE5wU1pWeC1YS2NB?oc=5) ⭐️ 7.0/10
+### [GPT-6 Astra 无人工干预自主通关《传送门》，全程约 23 小时 43 分钟](https://the-decoder.com/gpt-6-astra-beat-portal-start-to-finish-without-human-help-in-under-24-hours/) ⭐️ 7.0/10
 
-据路透社报道，Anthropic 在假日购物季前发布了面向零售商的 AI 智能体蓝图（AI agent blueprints）。这一发布表明 Anthropic 正将 Claude 的智能体能力推向具体行业场景，为零售商提供可复用的智能体工作流或参考架构。目前公开信息仅来自新闻标题，蓝图包含的具体任务类型、技术实现或可用平台尚不清楚，更多细节预计会出现在 Anthropic 官方文档或模型卡中。这次发布的意义在于企业级智能体落地：它不是新的模型能力基准，而是面向部署的解决方案模板。值得关注的是这些蓝图是否覆盖客服自动化、库存管理、商品推荐等典型零售环节，以及它们是否与 Claude API 或第三方平台集成。
+据 The Decoder 转述，开发者 cozyblaze 在 X 上报告，OpenAI 的 GPT-6 Astra 在仅设定初始目标、没有任何人工帮助的情况下，从《Portal》开头一直打到片尾字幕，总耗时约 23 小时 43 分钟。按 Astra 的公开 token 价格估算，这次运行至少产生 570 美元的费用；cozyblaze 实际上是使用 200 美元 Codex 订阅完成操作的。模型通过 MCP 和修改版 SourcePauseTool 控制游戏：每次思考时暂停游戏，读取截图、玩家位置和摄像机角度，选择输入后再恢复运行，视频中已剪掉这些暂停片段。代码和文档已经发布在 GitHub 上。这一结果是开发者个人声明，尚缺少 OpenAI 官方技术报告或第三方复现作为独立证据；cozyblaze 认为该演示呼应了 OpenAI 2016 年提出的“用单一智能体解决多种游戏”的目标，并称 GPT-6 Astra 将是“我们未来拿到的最差模型”。
 
-google\_news · reuters.com · 9月2日 16:01
+rss · The Decoder · 9月7日 17:39
 
-**「背景」** Anthropic 是 Claude 系列模型的开发商，其智能体方向强调模型原生的工具调用、计算机操作与可验证的工作流设计。此前 Anthropic 曾发布过“Building effective agents”等设计指南，以蓝图形式把常见企业任务包装成可复制、可修改的模板。这次面向零售商的蓝图瞄准假日购物季，说明厂商正把通用智能体模式转化为行业垂直产品，以降低企业从演示到实际落地的门槛。
+**「背景」** 《Portal》是 Valve 公司 2007 年推出的第一人称解谜游戏，玩家需要利用传送门机制完成物理谜题；完整通关意味着智能体必须具备持续数小时的视觉观察、空间推理和连续决策能力。MCP（Model Context Protocol）是模型与外部环境之间的标准化协议，SourcePauseTool 则是这次演示中使用的修改版暂停工具，让模型在游戏暂停时获取画面和状态，再决定下一步动作。
 
-**「影响」** 对开发者与零售技术团队来说，这是一次低成本试用智能体的机会：可以直接基于蓝图评估 Claude 在真实零售业务中的效果，而不必从零搭建。下一步值得关注的是官方是否开放测试、提供示例数据或披露基准表现，以及 AWS 等渠道是否同步上架。
+**「影响」** 这次演示说明“暂停—感知—规划—执行”的闭环范式可以支撑较长时程的自主智能体任务，MCP 等工具接口是这种能力落地的关键；同时数百美元的 token 成本也提醒开发者，通用自主代理距离廉价、可靠的规模化仍有距离。下一步值得关注 GitHub 上的代码可复现性、不同模型在同一任务上的横向对比，以及 OpenAI 是否发布相关的官方技术细节或评估。
 
-**标签**: `#Anthropic`, `#AI agents`, `#retail`, `#AI deployment`
+**标签**: `#agents`, `#gaming`, `#GPT-6`, `#autonomy`, `#MCP`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [OpenAI 首席科学家主张放慢 AI 研究，尚待完整信息确认](https://news.google.com/rss/articles/CBMilgFBVV95cUxNdWltMVNub3BseUhsOHdheTNGZ3lxS3ZXRWdJcks2a0M0UnVlSnBuelA5T3JFdWNGVnF1NmdIM2ZkV3diNFhBWHExLWd6LXdyak9XZkpZYkx5VElGdUJRSFVoMnJKa1gzaHM3dkFyaWxkLTV1X1dpbjN6WGVvb0Y1XzJTelZMSmtWUFJoOXRuLTcwM0V6ZGc?oc=5) ⭐️ 4.0/10
+### [EXAONE 发布面向金融时序预测的无注意力基础模型 EXAONE Finance](https://arxiv.org/abs/2609.04239) ⭐️ 7.0/10
 
-据 SiliconANGLE 报道，OpenAI 首席科学家主张放慢 AI 研究节奏，这被解读为研究高层对行业推进速度的担忧。由于当前只能看到新闻标题与分析摘要，尚不清楚其说法出现在什么场合、建议限制哪些具体研究方向、是否提出时间表，也不清楚 OpenAI 是否已作出回应。确认的事实是 OpenAI 内部再次出现“安全优先、减速研究”的声音，并且它来自负责长期科研方向的最高技术职位之一。接下来应关注 SiliconANGLE 正文中的原始引述，或 OpenAI 是否发布安全政策更新、模型发布节奏调整等官方信号，以判断这是个人观点还是组织策略的变化。
+EXAONE 发布技术报告“EXAONE Forecast for Finance（EXAONE Finance）”，提出面向金融时间序列预测的基础模型。该模型采用无注意力架构：用因果 1D 卷积进行时间维混合，用分组感知池化 MLP 进行变量维混合，替代计算成本随序列长度和变量数二次增长的自注意力骨干；同时引入掩码上下文增强，让模型在训练时遇到连续缺失片段，以提升对金融市场普遍存在的缺失观测的鲁棒性。预训练语料覆盖股票、外汇、大宗商品、加密资产、固定收益和宏观经济指标，不仅限于股票。在覆盖多资产类别的金融预测基准 FinVerse 上，EXAONE Finance 在点预测精度、横截面资产排序和组合盈利性三个评估层级均排名第一，报告称达到最先进水平。该报告编号为 arXiv:2609.04239；目前摘要尚未展示具体数值结果与对比基线细节。
 
-google\_news · SiliconANGLE · 9月8日 00:35
+rss · arXiv cs.AI · 9月7日 04:00
 
-**「背景」** OpenAI 是开发 GPT 系列模型与 ChatGPT 的人工智能研究机构，公开使命是确保人工通用智能（AGI）造福全人类。围绕这一使命，其内部长期存在推进模型能力与优先安全对齐两种路线，学界和机构内部也经常讨论是否应主动放慢大规模训练节奏。首席科学家是决定长期研究战略与执行节奏的关键岗位，因此其“减速”言论通常会被视为安全派在机构决策中的代表性信号。
+**「背景」** 时间序列基础模型（TSFM）通常在大规模通用语料上预训练，并依赖自注意力骨干，但自注意力的计算成本随序列长度和变量数增加呈二次增长，且这些模型大多假设输入完全可观测。金融领域常见的却是长序列、多通道、间歇性观测的面板数据，因此通用 TSFM 难以直接适用。EXAONE 是面向金融和企业场景的系列工作，本报告是该系列扩展到时序基础模型方向的一次尝试，核心思路是用线性时间算子替代自注意力，并跨多种资产类别构建金融预训练语料。
 
-**「影响」** 对学习者和开发者而言，这一信号意味着即便是领先 AI 机构内部也在反思“能力扩展优先于安全治理”的默认节奏，政策层面可能影响模型发布和 API 开放时间表。但证据还不完整，下一步值得盯住原始报道中的原话和任何配套声明：若有官方技术路线图或安全评估框架出现，才代表真实政策变化。
+**「影响」** 对金融 AI 与时间序列建模的研究者而言，EXAONE Finance 提供了一个值得关注的新基线，其无注意力设计和掩码连续缺失增强专门针对金融数据的长序列、高维与缺失问题。由于报告摘要尚未给出 FinVerse 上的具体指标和模型细节，下一步值得关注完整技术报告中的量化对比、模型卡，以及权重或 API 是否对外开放。
 
-**标签**: `#OpenAI`, `#AI safety`, `#research policy`
+**标签**: `#finance`, `#time-series`, `#foundation-models`, `#architecture`, `#arxiv`
 
 ---
 
 <a id="item-tech-news-5"></a>
-### [OpenAI 内部“研究助手”：用 AI 加速自身研发的一则早期信号](https://news.google.com/rss/articles/CBMimAFBVV95cUxQeFIwTmpUUEp4N0pKUm54QnV1TmlkNmkzVldoT1JKZGpqUnZUR0xKLWh1VDlOSGhDZW84YXFDSVJQbUxTRkl4OGhjaVBxem1YRUJJTktIbEY0V0FwejlxaVc3ckxnVUVqZnNWalBBQktqalpXZElZQUlGM21LdzdNOC1zNkRGeVNvRWpIbVQ4MVBSQktiREhpbg?oc=5) ⭐️ 4.0/10
+### [Iris：以超链接多跳数据管线训练的搜索智能体登上 arXiv](https://arxiv.org/abs/2609.04304) ⭐️ 7.0/10
 
-PCMag 报道称，OpenAI 内部存在一个利用 AI 来“构建更好 AI”的“研究助手”系统。该报道目前仅提供标题级别的信息，正文并未披露系统名称、发布时间、工作方式或任何评测数据。作为 AI 行业信号，它表明 OpenAI 可能正把自家模型引入研发流程，用于实验设计、代码编写、数据分析等研究辅助工作。不过，目前无法确认该系统究竟是对话式助手、agent，还是内部自动化工作流，也无法验证其实际效果。下一步需要等待 OpenAI 官方技术报告、论文或后续有具体细节的媒体报道，才能评估这项内部工具的真实影响。
+arXiv 论文介绍了两款搜索智能体 Iris-mini 与 Iris-pro，分别基于 35B-A3B 和 397B-A17B 规模训练，并公开其数据管线与训练方法。作者从网页语料的超链接结构反向构造多跳问题：先基于种子页面及其出链提炼实体图，再把非答案实体改写为描述性指代，避免模型仅靠字符串匹配解题，最后只保留参考模型无法闭卷回答、但给定证据后能解决的题目。训练上先用 SFT，再用实时搜索环境做强化学习，并且交替 SFT 与 RL，形成所谓“SFT-RL climbing”，把每轮中最难解决且最高效的轨迹回填到下一轮监督训练。在开启上下文管理时，Iris-mini 和 Iris-pro 在 BrowseComp、BrowseComp-ZH、DeepSearchQA、HLE 上分别取得 82.2/84.8/86.9/52.3 与 88.6/85.1/92.9/56.4，作者称这是各参数区间内开源搜索智能体中总体最强结果。作者计划发布模型权重，以及数据构建、训练和评估的完整配方。
 
-google\_news · PCMag · 9月7日 15:26
+rss · arXiv cs.AI · 9月7日 04:00
 
-**「背景」** OpenAI 是前沿 AI 实验室，曾发布 GPT 系列和 o 系列模型，其研发流程通常包括模型训练、评测、安全与对齐等环节。行业内所称的“AI 研究助手”一般指用于加速 AI 研发的模型或 agent，能够协助处理实验、结果分析等工作；“用 AI 构建更好的 AI”正是这类工具的核心定位。理解这则新闻时，关键在于区分“AI 辅助编程”和“模型深度参与自身研究流程”两种不同成熟度的应用方向。
+**「背景」** 搜索智能体通常以 ReAct 等方式让语言模型交替进行推理、调用搜索引擎并阅读结果，因此训练数据的质量与搜索工具的真实反馈尤为关键。Iris 的特别之处是把“从网页超链接出发构造多跳问题-筛选-监督微调-在线强化学习-再监督”的闭环节奏作为核心配方，并强调推理期上下文管理带来的收益往往大于系统之间的常规差异。论文中的“35B-A3B”通常表示总参数与单次推理激活参数规模，属于大模型部署中常见的比例设计。
 
-**「影响」** 如果该内部工具真实存在并进入日常研发，可能说明前沿实验室已开始让模型参与自身的训练与评估流程，AI 开发效率与成本结构可能因此变化。当前证据仍不充分，读者下一步应关注 OpenAI 是否发布官方技术说明或模型卡，或者是否出现来自研发人员的更具体披露。
+**「影响与观察点」** 这项研究为开源搜索智能体提供了一条可复现的高质量多跳数据生成与迭代训练路线，说明“数据逆向构造”加“在线搜索 RL”可以显著提升复杂检索问答能力。研究者与产品构建者下一步应关注权重与完整配方的实际开放情况，并用固定工具集、上下文限制和评判模型的条件复跑 BrowseComp 与 HLE 等基准，以验证 Iris 是否真的达到其声称的开源领先水平。
 
-**标签**: `#OpenAI`, `#AI research`, `#AI tools`, `#internal systems`
+**标签**: `#search agents`, `#reinforcement learning`, `#large language models`, `#data pipeline`, `#arXiv`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [OpenAI 自称实现自我改进 AI 里程碑，细节待披露](https://news.google.com/rss/articles/CBMigwFBVV95cUxONWYyd1k0MGlBVDVKTmZ6M2xCRVZSQkIzLXBma21OOWozNF8xTUNDSnZ6a0hiM0ZCNkkyTTJMSHFfM2Z2bXAtTENWYmpMb0FMVW5mdXJnTm9HTEFEUGpEdy0zTTJtTm5RRjN3YkRoTFFrb1lHX3cwLXZITTByQXYwTDBXRQ?oc=5) ⭐️ 3.0/10
+### [JEPA 式世界模型的新失败模式：物理表示惰性及傅里叶辅助头方案](https://arxiv.org/abs/2609.04264) ⭐️ 7.0/10
 
-Help Net Security 报道称，OpenAI 在通往自我改进式 AI 的道路上达成了一个里程碑。然而，报道目前仅有标题，没有提供任何具体技术细节、模型名称、发布时间或评测证据，因此该说法尚无法核实。对读者而言，最值得关注的是 OpenAI 后续是否发布官方技术报告或模型卡，以及该里程碑是否对应某个具体的推理、训练或强化学习改进。若该消息属实，它可能代表模型能自主指导自身训练或评估流程，属于 AI 研究从“人工设计算法”向“算法自我迭代”过渡的关键信号。在被官方资料或第三方评测证实前，应将其视为初步传闻而非既定事实。
+arXiv 论文 2609.04264 识别出潜在世界模型的一类新失败模式“物理表示惰性”（physical representation laziness）：在高度动态环境中，模型潜在状态虽未坍缩，却无法表示关键物理属性，导致下游规划普遍失败。作者提出在训练时添加轻量级“傅里叶辅助头”（Fourier auxiliary head）进行辅助监督，以强制潜在空间具备物理信息结构，且不增加推理成本，并可推广到任意环境。实验表明，该方法显著提升了基线 LeWorldModel（LeWM）在动态环境中的规划成功率，在基线未出现物理表示惰性的其他环境中也有适度提升。作者还观察到，规划性能提升伴随着潜在状态与关键物理属性之间更高的相关性，说明该辅助头既能在物理层面结构化潜在表示，也有助于规划。在低数据场景下，该辅助监督对成功率的提升尤为明显，体现出更好的数据效率。需要关注的是，当前信息来源为 arXiv 摘要，具体实验设置、数据集与基准细节尚需在完整论文中核实。
 
-google\_news · Help Net Security · 9月7日 09:05
+rss · arXiv cs.LG · 9月7日 04:00
 
-**「背景」** 自我改进式 AI 通常指系统能够根据自身经验或内部反馈优化能力，例如自动生成训练数据、改进奖励模型或调整学习策略。OpenAI 之前的研究方向包括基于人类反馈的强化学习、过程监督，以及利用模型生成偏好数据等，但“自我改进”常常意味着减少人工干预。此次报道的里程碑身份不明，可能是某个内部研究项目，也可能涉及 API 或产品能力的更新。理解该新闻的关键是识别报道中的事实、推断与营销叙事，并等待 Paper、基准或源码等可验证材料。
+**「背景知识」** JEPA（联合嵌入预测架构）类世界模型的核心思路是放弃像素空间的预测，改为在潜在表示空间中执行预测与规划。为增强这种范式，较新的架构如 LeWorldModel（LeWM）会联合训练编码器和预测器，并使用 SIGReg 之类正则化手段防止表示坍缩；坍缩指所有输入被映射到相似的潜在表示从而丢失区分信息。本论文指出，即使防住了传统坍缩，模型仍可能出现“物理表示惰性”，即保留可区分信息却丢掉速度、位置等对规划关键的物理量，这是此前未单独区分的另一类潜在表示退化问题。
 
-**「影响」** 若该里程碑得到官方证实，可能加速 AI 开发自动化，减少人工标注与人工调参，对研究者和产品构建者的工作流将产生显著影响。当前应重点关注 OpenAI 的官方公告、arXiv 论文或相关模型卡，以及独立机构对该能力的可复现性评估。
+**「影响与关注点」** 对世界模型研究者和具身智能开发者而言，这项工作的价值在于用训练时辅助头直接约束潜在空间承载物理量，既提升规划成功率又提升数据效率，且不改变推理复杂度。由于目前可见信息来自摘要且结果未完整展示，下一步应关注论文完整版本中的实验基准、动态环境设置、与现有正则化方法的对比，以及开源代码或模型权重是否发布。
 
-**标签**: `#OpenAI`, `#self-improving AI`, `#AI milestone`
+**标签**: `#world models`, `#latent representation learning`, `#JEPA`, `#AI research`, `#planning`
+
+---
+
+<a id="item-tech-news-7"></a>
+### [Anthropic 15 亿美元和解金分配起争议：作者指出版商与经纪公司越权索赔](https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/) ⭐️ 6.0/10
+
+Anthropic 去年达成的 15 亿美元版权集体诉讼和解已进入付款阶段，但不少作者本周收到通知称，第三方正在对其应得款项提出主张。和解条款覆盖近 50 万种图书，每部被侵权的作品作者可获 3000 美元；若图书仍由传统出版社在售，金额由作者与出版社平分，自费出版或版权已回归作者的图书则应由作者全额领取。作家 April Henry 举例说，HarperCollins 对她一部 17 年前已回归版权的作品索要款项，同一天还把她列为员工；Writers Beware 博主 Victoria Strauss 表示收到大量同类投诉，包括出版社对已无权利的图书索赔、以及要求全额而非 50%分成。她还指出部分文学经纪公司也在主张分成，而经纪公司并非版权持有人。Authors Guild 首席执行官 Mary Rasenberger 认为这更像记录混乱而非恶意，但 Strauss 与多份报告都提示问题可能具有系统性；作者需要关注权利回归日期是否早于 2022 年 8 月 10 日这一“下载日期”，以决定能否 100%领取。
+
+rss · TechCrunch AI · 9月6日 20:47
+
+**「背景」** 这起和解源于针对 Anthropic 在训练 AI 模型时使用受版权保护作品的集体诉讼。法官此前裁定，将受版权材料用于 AI 训练属于合理使用，但复制盗版内容不属于合理使用；这一区分使和解仅覆盖“盗版”来源的作品。协议在近期 7 月获最终批准，之后开始向作者付款，而传统出版合同中的版税分成规则与“权利回归”概念成为此次分配争议的核心。
+
+**「影响与观察点」** 对 AI 行业而言，这次分配争议说明训练数据版权和解不仅涉及模型训练合法性，还会牵动作者、出版社和经纪公司之间模糊的权属关系。接下来应关注 Anthropic 或结算管理方是否修正错误主张、作者申诉机制的实际处理效率，以及 Books3 等受版权训练语料相关和解是否会对权利持有人身份作出更严格界定。
+
+**标签**: `#copyright`, `#Anthropic`, `#legal`, `#AI training`, `#settlement`
+
+---
+
+<a id="item-tech-news-8"></a>
+### [曝 Kalanick 的 Atoms 正进入 Robotaxi 领域，Uber 已投资 1 亿美元](https://techcrunch.com/2026/09/06/travis-kalanicks-atoms-might-be-getting-into-the-robotaxi-business/) ⭐️ 6.0/10
+
+据 TechCrunch 转述《金融时报》报道，Travis Kalanick 的初创公司 Atoms 正准备大举招聘并进行收购，目标是成为自动驾驶行业的主要玩家，而 Robotaxi 是其中的重要方向。Atoms 已与 Uber 讨论如何使用其 Robotaxi 技术，Uber 此前已向 Atoms 投资 1 亿美元，这一投资额已获 TechCrunch 确认。今年夏初，Atoms 刚宣布完成由 Andreessen Horowitz 领投的 17 亿美元融资；Kalanick 曾用“未完成的事业”形容这轮融资，且消息人士强调 Robotaxi 并非 Atoms 的全部计划。该方向也与 Atoms 收购前 Uber 自动驾驶负责人 Anthony Levandowski 创办的 Pronto 公司相吻合，但目前仍为媒体早期报道，技术细节与最终合作形式尚未公布。
+
+rss · TechCrunch AI · 9月6日 16:45
+
+**「背景」** Travis Kalanick 是 Uber 的联合创始人与前 CEO，Atoms 是他目前的创业公司；该公司今年夏初获得 Andreessen Horowitz 领投的 17 亿美元融资。Robotaxi 是将自动驾驶技术直接应用于出行服务的落地场景，Uber 此前已与多家自动驾驶公司合作，推动无人驾驶车队接入其平台。Anthony Levandowski 曾领导 Uber 自动驾驶项目，后因窃取商业机密获刑并获总统赦免；他创办的矿山自动驾驶公司 Pronto 已被 Atoms 收购。
+
+**「影响与看点」** 如果 Atoms 与 Uber 达成深度合作，意味着又一家具备大规模融资能力和创始人背景的公司进入 Robotaxi 产业链，可能影响 Uber 平台未来接入无人驾驶车队的供应商格局。由于目前尚无技术方案或官方路线图，下一步应关注 Atoms 的正式公告、招聘与并购进展，以及 Uber 是否披露更具体的合作关系或追加投资。
+
+**标签**: `#robotaxi`, `#autonomous vehicles`, `#Atoms`, `#Travis Kalanick`, `#Uber`
 
 ---
