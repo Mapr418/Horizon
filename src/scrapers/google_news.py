@@ -166,12 +166,19 @@ class GoogleNewsScraper(BaseScraper):
             }
 
             content = self._extract_content(entry)
-            if self.gn_config.content_extractor and self._extractors:
-                extractor = self._extractors.get(self.gn_config.content_extractor)
-                if extractor:
-                    full = await extractor.extract(link, self.client)
-                    if full:
-                        content = full
+            if self.gn_config.content_extractor:
+                full = None
+                if self._extractors:
+                    extractor = self._extractors.get(self.gn_config.content_extractor)
+                    if extractor:
+                        full = await extractor.extract(link, self.client)
+                if not full or len(full.strip()) < 500:
+                    logger.info(
+                        "Skipping Google News item without extracted article text: %s",
+                        title,
+                    )
+                    return None
+                content = full
 
             return ContentItem(
                 id=self._generate_id("google_news", "article", entry_hash),

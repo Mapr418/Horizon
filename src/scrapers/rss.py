@@ -103,14 +103,21 @@ class RSSScraper(BaseScraper):
                 # Extract content
                 content = self._extract_content(entry)
 
-                if source.content_extractor and self._extractors:
-                    extractor = self._extractors.get(source.content_extractor)
-                    if extractor:
-                        url = entry.get("link", "")
-                        if url:
-                            full = await extractor.extract(url, self.client)
-                            if full:
-                                content = full
+                if source.content_extractor:
+                    full = None
+                    if self._extractors:
+                        extractor = self._extractors.get(source.content_extractor)
+                        if extractor:
+                            url = entry.get("link", "")
+                            if url:
+                                full = await extractor.extract(url, self.client)
+                    if not full or len(full.strip()) < 500:
+                        logger.info(
+                            "Skipping RSS item without extracted article text: %s",
+                            entry.get("title", "Untitled"),
+                        )
+                        continue
+                    content = full
 
                 item = ContentItem(
                     id=self._generate_id("rss", feed_id, entry_hash),
