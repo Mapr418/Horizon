@@ -18,7 +18,7 @@
     "default_profile": "tech-news",
     "profile_settings": {
       "tech-news": {
-        "threshold": 3.0,
+        "threshold": 2.0,
         "topic_dedup": true
       }
     }
@@ -37,61 +37,96 @@
         "url": "https://openai.com/news/rss.xml",
         "enabled": true,
         "category": "frontier-news",
-        "content_extractor": "trafilatura",
-        "profile": "tech-news"
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
       },
       {
         "name": "Google DeepMind Blog",
         "url": "https://deepmind.google/blog/feed/basic/",
         "enabled": true,
         "category": "frontier-news",
-        "content_extractor": "trafilatura",
-        "profile": "tech-news"
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
       },
       {
         "name": "Google AI Blog",
         "url": "https://blog.google/technology/ai/rss/",
         "enabled": true,
         "category": "frontier-news",
-        "content_extractor": "trafilatura",
-        "profile": "tech-news"
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
       },
       {
         "name": "Hugging Face Blog",
         "url": "https://huggingface.co/blog/feed.xml",
         "enabled": true,
         "category": "frontier-news",
-        "content_extractor": "trafilatura",
-        "profile": "tech-news"
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
       },
       {
         "name": "MIT News AI",
         "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
         "enabled": true,
         "category": "frontier-news",
-        "content_extractor": "trafilatura",
-        "profile": "tech-news"
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
       },
       {
-        "name": "LLM Papers Search",
-        "url": "https://export.arxiv.org/api/query?search_query=all:%22large%20language%20model%22&start=0&max_results=2&sortBy=submittedDate&sortOrder=descending",
+        "name": "TechCrunch AI",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
         "enabled": true,
-        "category": "papers",
-        "profile": "tech-news"
+        "category": "frontier-news",
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
       },
       {
-        "name": "AI Agents Papers Search",
-        "url": "https://export.arxiv.org/api/query?search_query=all:%22AI%20agent%22&start=0&max_results=2&sortBy=submittedDate&sortOrder=descending",
+        "name": "VentureBeat AI",
+        "url": "https://venturebeat.com/category/ai/feed/",
         "enabled": true,
-        "category": "papers",
-        "profile": "tech-news"
+        "category": "frontier-news",
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
       },
       {
-        "name": "Multimodal AI Papers Search",
-        "url": "https://export.arxiv.org/api/query?search_query=all:%22multimodal%20model%22&start=0&max_results=1&sortBy=submittedDate&sortOrder=descending",
+        "name": "The Decoder",
+        "url": "https://the-decoder.com/feed/",
+        "enabled": true,
+        "category": "frontier-news",
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "arXiv cs.AI",
+        "url": "https://rss.arxiv.org/rss/cs.AI",
         "enabled": true,
         "category": "papers",
-        "profile": "tech-news"
+        "profile": "tech-news",
+        "max_results": 5
+      },
+      {
+        "name": "arXiv cs.LG",
+        "url": "https://rss.arxiv.org/rss/cs.LG",
+        "enabled": true,
+        "category": "papers",
+        "profile": "tech-news",
+        "max_results": 5
+      },
+      {
+        "name": "arXiv cs.CL",
+        "url": "https://rss.arxiv.org/rss/cs.CL",
+        "enabled": true,
+        "category": "papers",
+        "profile": "tech-news",
+        "max_results": 3
       }
     ],
     "reddit": {
@@ -118,7 +153,7 @@
       "language": "en",
       "country": "US",
       "ceid": null,
-      "max_results": 8,
+      "max_results": 6,
       "category": "frontier-news",
       "profile": "tech-news",
       "content_extractor": "trafilatura"

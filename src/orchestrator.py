@@ -816,6 +816,31 @@ class HorizonOrchestrator:
             reverse=True,
         )
         balanced = self.apply_balanced_digest(eligible, log=log)
+        if not balanced.items:
+            fallback_candidates = [
+                item
+                for item in candidates
+                if len((item.content or "").strip()) >= 350
+            ]
+            fallback_candidates.sort(
+                key=lambda item: (
+                    item.processing.analysis.score
+                    if item.processing
+                    and item.processing.analysis
+                    and item.processing.analysis.score is not None
+                    else -1
+                ),
+                reverse=True,
+            )
+            fallback_limit = self.config.digest.max_items or 3
+            fallback = fallback_candidates[: min(3, fallback_limit)]
+            if fallback:
+                if log:
+                    self.console.print(
+                        "[yellow]No items passed the score threshold; "
+                        f"using {len(fallback)} body-backed recent AI items as the daily fallback.[/yellow]\n"
+                    )
+                balanced = self.apply_balanced_digest(fallback, log=log)
         return FilteringPipelineResult(
             items=balanced.items,
             threshold_count=initial.threshold_count,

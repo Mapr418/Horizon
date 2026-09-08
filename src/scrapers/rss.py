@@ -136,6 +136,8 @@ class RSSScraper(BaseScraper):
                     },
                 )
                 items.append(item)
+                if source.max_results is not None and len(items) >= source.max_results:
+                    break
 
         except httpx.HTTPError as e:
             logger.warning("Error fetching RSS feed %s: %s", source.name, e)
