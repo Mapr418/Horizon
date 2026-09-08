@@ -216,10 +216,17 @@ class AIConfig(BaseModel):
 class GitHubSourceConfig(BaseModel):
     """GitHub source configuration."""
 
-    type: str  # "user_events", "repo_releases", etc.
+    type: str  # "user_events", "repo_releases", "repo_search", etc.
     username: Optional[str] = None
     owner: Optional[str] = None
     repo: Optional[str] = None
+    query: Optional[str] = None
+    sort: str = "updated"
+    order: str = "desc"
+    max_results: int = 10
+    min_stars: int = 0
+    fetch_readme: bool = True
+    readme_max_chars: int = 6000
     enabled: bool = True
     category: Optional[str] = None
     profile: ProfileRoute = None
@@ -394,6 +401,8 @@ class OSSInsightConfig(BaseModel):
     keywords: List[str] = Field(default_factory=list)
     min_stars: int = 5
     max_items: int = 30
+    fetch_readme: bool = True
+    readme_max_chars: int = 5000
     category: Optional[str] = None
     profile: ProfileRoute = None
 

@@ -1,5 +1,6 @@
 """GitHub scraper implementation."""
 
+import base64
 import logging
 import os
 from datetime import datetime
@@ -62,6 +63,9 @@ class GitHubScraper(BaseScraper):
             elif source.type == "repo_releases" and source.owner and source.repo:
                 release_items = await self._fetch_repo_releases(source, since)
                 items.extend(release_items)
+            elif source.type == "repo_search" and source.query:
+                repo_items = await self._fetch_repo_search(source, since)
+                items.extend(repo_items)
 
         return items
 
@@ -222,3 +226,116 @@ class GitHubScraper(BaseScraper):
             logger.warning("Error fetching releases for %s/%s: %s", owner, repo, e)
 
         return items
+
+    async def _fetch_repo_search(
+        self,
+        source: GitHubSourceConfig,
+        since: datetime,
+    ) -> List[ContentItem]:
+        """Search recently active AI repositories and use README text as body content."""
+        since_date = since.date().isoformat()
+        query = source.query.strip()
+        if "pushed:" not in query:
+            query = f"{query} pushed:>={since_date}"
+        if source.min_stars and "stars:" not in query:
+            query = f"{query} stars:>={source.min_stars}"
+
+        params = {
+            "q": query,
+            "sort": source.sort,
+            "order": source.order,
+            "per_page": min(max(source.max_results, 1), 30),
+        }
+        items: List[ContentItem] = []
+
+        try:
+            response = await self.client.get(
+                f"{self.base_url}/search/repositories",
+                params=params,
+                headers=self._get_headers(),
+                follow_redirects=True,
+            )
+            response.raise_for_status()
+            repos = response.json().get("items", [])
+
+            for repo in repos[: source.max_results]:
+                pushed_raw = repo.get("pushed_at") or repo.get("updated_at")
+                if not pushed_raw:
+                    continue
+                pushed_at = datetime.fromisoformat(pushed_raw.replace("Z", "+00:00"))
+                if pushed_at < since:
+                    continue
+
+                full_name = repo.get("full_name")
+                if not full_name or "/" not in full_name:
+                    continue
+                stars = int(repo.get("stargazers_count") or 0)
+                if source.min_stars and stars < source.min_stars:
+                    continue
+
+                readme = ""
+                if source.fetch_readme:
+                    readme = await self._fetch_repo_readme(full_name, source.readme_max_chars)
+                description = (repo.get("description") or "").strip()
+                if not readme and not description:
+                    continue
+
+                content_lines = [
+                    f"GitHub repository activity: {full_name}",
+                    f"Stars: {stars}",
+                    f"Forks: {repo.get('forks_count') or 0}",
+                    f"Open issues: {repo.get('open_issues_count') or 0}",
+                    f"Primary language: {repo.get('language') or 'unknown'}",
+                    f"Last pushed: {pushed_raw}",
+                ]
+                if description:
+                    content_lines.extend(["", f"Description: {description}"])
+                if readme:
+                    content_lines.extend(["", "README excerpt:", readme])
+
+                items.append(
+                    ContentItem(
+                        id=self._generate_id("github", "repo_search", str(repo.get("id"))),
+                        source_type=SourceType.GITHUB,
+                        title=f"{full_name} active on GitHub",
+                        url=repo.get("html_url") or f"https://github.com/{full_name}",
+                        content="\n".join(content_lines),
+                        author=repo.get("owner", {}).get("login") or full_name.split("/")[0],
+                        published_at=pushed_at,
+                        profile=source.profile,
+                        metadata={
+                            "repo": full_name,
+                            "stars": stars,
+                            "forks": repo.get("forks_count") or 0,
+                            "open_issues": repo.get("open_issues_count") or 0,
+                            "language": repo.get("language"),
+                            "pushed_at": pushed_raw,
+                            "search_query": query,
+                            "category": source.category,
+                        },
+                    )
+                )
+        except httpx.HTTPError as e:
+            logger.warning("Error searching GitHub repositories for %s: %s", source.query, e)
+
+        return items
+
+    async def _fetch_repo_readme(self, full_name: str, max_chars: int) -> str:
+        """Fetch a repository README through the GitHub API and return markdown text."""
+        try:
+            response = await self.client.get(
+                f"{self.base_url}/repos/{full_name}/readme",
+                headers=self._get_headers(),
+                follow_redirects=True,
+            )
+            response.raise_for_status()
+            payload = response.json()
+            encoded = payload.get("content") or ""
+            if not encoded:
+                return ""
+            decoded = base64.b64decode(encoded).decode("utf-8", errors="replace")
+            return decoded.strip()[:max_chars]
+        except Exception as e:
+            logger.info("Could not fetch README for %s: %s", full_name, e)
+            return ""
+

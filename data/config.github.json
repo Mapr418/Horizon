@@ -24,11 +24,89 @@
     }
   },
   "sources": {
-    "github": [],
+    "github": [
+      {
+        "type": "repo_search",
+        "query": "topic:artificial-intelligence",
+        "sort": "updated",
+        "order": "desc",
+        "max_results": 4,
+        "min_stars": 500,
+        "fetch_readme": true,
+        "readme_max_chars": 5000,
+        "enabled": true,
+        "category": "open-source",
+        "profile": "tech-news"
+      },
+      {
+        "type": "repo_search",
+        "query": "topic:llm",
+        "sort": "updated",
+        "order": "desc",
+        "max_results": 4,
+        "min_stars": 200,
+        "fetch_readme": true,
+        "readme_max_chars": 5000,
+        "enabled": true,
+        "category": "open-source",
+        "profile": "tech-news"
+      },
+      {
+        "type": "repo_search",
+        "query": "topic:ai-agent",
+        "sort": "updated",
+        "order": "desc",
+        "max_results": 4,
+        "min_stars": 50,
+        "fetch_readme": true,
+        "readme_max_chars": 5000,
+        "enabled": true,
+        "category": "open-source",
+        "profile": "tech-news"
+      },
+      {
+        "type": "repo_search",
+        "query": "topic:generative-ai",
+        "sort": "updated",
+        "order": "desc",
+        "max_results": 3,
+        "min_stars": 200,
+        "fetch_readme": true,
+        "readme_max_chars": 5000,
+        "enabled": true,
+        "category": "open-source",
+        "profile": "tech-news"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "openai",
+        "repo": "openai-python",
+        "enabled": true,
+        "category": "company-release",
+        "profile": "tech-news"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "anthropics",
+        "repo": "anthropic-sdk-python",
+        "enabled": true,
+        "category": "company-release",
+        "profile": "tech-news"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "deepseek-ai",
+        "repo": "DeepSeek-V3",
+        "enabled": true,
+        "category": "company-release",
+        "profile": "tech-news"
+      }
+    ],
     "hackernews": {
-      "enabled": false,
-      "fetch_top_stories": 10,
-      "min_score": 100,
+      "enabled": true,
+      "fetch_top_stories": 35,
+      "min_score": 20,
+      "category": "community-discussion",
       "profile": "tech-news"
     },
     "rss": [
@@ -36,7 +114,16 @@
         "name": "OpenAI News",
         "url": "https://openai.com/news/rss.xml",
         "enabled": true,
-        "category": "frontier-news",
+        "category": "company-news",
+        "profile": "tech-news",
+        "max_results": 3,
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Anthropic News",
+        "url": "https://www.anthropic.com/news/rss.xml",
+        "enabled": true,
+        "category": "company-news",
         "profile": "tech-news",
         "max_results": 3,
         "content_extractor": "trafilatura"
@@ -45,7 +132,7 @@
         "name": "Google DeepMind Blog",
         "url": "https://deepmind.google/blog/feed/basic/",
         "enabled": true,
-        "category": "frontier-news",
+        "category": "company-news",
         "profile": "tech-news",
         "max_results": 3,
         "content_extractor": "trafilatura"
@@ -54,7 +141,7 @@
         "name": "Google AI Blog",
         "url": "https://blog.google/technology/ai/rss/",
         "enabled": true,
-        "category": "frontier-news",
+        "category": "company-news",
         "profile": "tech-news",
         "max_results": 3,
         "content_extractor": "trafilatura"
@@ -63,7 +150,7 @@
         "name": "Hugging Face Blog",
         "url": "https://huggingface.co/blog/feed.xml",
         "enabled": true,
-        "category": "frontier-news",
+        "category": "company-news",
         "profile": "tech-news",
         "max_results": 3,
         "content_extractor": "trafilatura"
@@ -72,7 +159,7 @@
         "name": "MIT News AI",
         "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
         "enabled": true,
-        "category": "frontier-news",
+        "category": "company-news",
         "profile": "tech-news",
         "max_results": 3,
         "content_extractor": "trafilatura"
@@ -81,7 +168,7 @@
         "name": "TechCrunch AI",
         "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
         "enabled": true,
-        "category": "frontier-news",
+        "category": "company-news",
         "profile": "tech-news",
         "max_results": 3,
         "content_extractor": "trafilatura"
@@ -90,7 +177,7 @@
         "name": "VentureBeat AI",
         "url": "https://venturebeat.com/category/ai/feed/",
         "enabled": true,
-        "category": "frontier-news",
+        "category": "company-news",
         "profile": "tech-news",
         "max_results": 3,
         "content_extractor": "trafilatura"
@@ -99,7 +186,7 @@
         "name": "The Decoder",
         "url": "https://the-decoder.com/feed/",
         "enabled": true,
-        "category": "frontier-news",
+        "category": "company-news",
         "profile": "tech-news",
         "max_results": 3,
         "content_extractor": "trafilatura"
@@ -110,7 +197,7 @@
         "enabled": true,
         "category": "papers",
         "profile": "tech-news",
-        "max_results": 5
+        "max_results": 2
       },
       {
         "name": "arXiv cs.LG",
@@ -118,7 +205,7 @@
         "enabled": true,
         "category": "papers",
         "profile": "tech-news",
-        "max_results": 5
+        "max_results": 2
       },
       {
         "name": "arXiv cs.CL",
@@ -126,11 +213,55 @@
         "enabled": true,
         "category": "papers",
         "profile": "tech-news",
-        "max_results": 3
+        "max_results": 2
       }
     ],
     "reddit": {
-      "enabled": false
+      "enabled": true,
+      "subreddits": [
+        {
+          "subreddit": "LocalLLaMA",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 8,
+          "min_score": 20,
+          "category": "community-discussion",
+          "profile": "tech-news"
+        },
+        {
+          "subreddit": "MachineLearning",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 8,
+          "min_score": 30,
+          "category": "community-discussion",
+          "profile": "tech-news"
+        },
+        {
+          "subreddit": "OpenAI",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 6,
+          "min_score": 20,
+          "category": "community-discussion",
+          "profile": "tech-news"
+        },
+        {
+          "subreddit": "ClaudeAI",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 6,
+          "min_score": 20,
+          "category": "community-discussion",
+          "profile": "tech-news"
+        }
+      ],
+      "users": [],
+      "fetch_comments": 4
     },
     "telegram": {
       "enabled": false
@@ -142,7 +273,31 @@
       "enabled": false
     },
     "ossinsight": {
-      "enabled": false
+      "enabled": true,
+      "period": "past_24_hours",
+      "languages": [
+        "All",
+        "Python",
+        "TypeScript"
+      ],
+      "keywords": [
+        "ai",
+        "llm",
+        "agent",
+        "model",
+        "rag",
+        "deepseek",
+        "openai",
+        "claude",
+        "gemini",
+        "multimodal"
+      ],
+      "min_stars": 20,
+      "max_items": 8,
+      "fetch_readme": true,
+      "readme_max_chars": 5000,
+      "category": "open-source",
+      "profile": "tech-news"
     },
     "gdelt": {
       "enabled": false
@@ -163,21 +318,36 @@
     "time_window_hours": 72
   },
   "digest": {
-    "max_items": 8,
+    "max_items": 10,
     "profile_order": [
       "tech-news"
     ],
     "category_groups": {
-      "frontier-news": {
-        "name": "模型发布与行业前沿",
-        "limit": 6,
+      "company-release": {
+        "name": "公司发布与官方动态",
+        "limit": 3,
         "categories": [
-          "frontier-news"
+          "company-release",
+          "company-news"
+        ]
+      },
+      "open-source": {
+        "name": "开源社区热度",
+        "limit": 3,
+        "categories": [
+          "open-source"
+        ]
+      },
+      "community-discussion": {
+        "name": "技术社区讨论",
+        "limit": 2,
+        "categories": [
+          "community-discussion"
         ]
       },
       "papers": {
-        "name": "论文与研究突破",
-        "limit": 4,
+        "name": "论文补充",
+        "limit": 2,
         "categories": [
           "papers"
         ]

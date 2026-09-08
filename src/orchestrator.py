@@ -267,8 +267,21 @@ class HorizonOrchestrator:
                     f"→ {len(merged_items)} unique items\n"
                 )
 
-            # 4. Analyze with AI
-            analyzed_items = await self.analyze_items(merged_items)
+            # 4. Keep only items backed by source body, README, release notes, comments, or abstracts.
+            body_backed_items = [
+                item for item in merged_items if self.has_body_backing(item)
+            ]
+            skipped_for_body = len(merged_items) - len(body_backed_items)
+            if skipped_for_body:
+                self.console.print(
+                    f"[yellow]Skipped {skipped_for_body} title-only or thin items before AI analysis[/yellow]\n"
+                )
+            if not body_backed_items:
+                self.console.print("[yellow]No body-backed content found. Exiting.[/yellow]")
+                return
+
+            # 5. Analyze with AI
+            analyzed_items = await self.analyze_items(body_backed_items)
             self.console.print(
                 f"{self.icons['ai']} Analyzed {len(analyzed_items)} items with AI\n"
             )
@@ -539,6 +552,20 @@ class HorizonOrchestrator:
             status="success" if items else "empty",
             items=items,
         )
+
+
+    @staticmethod
+    def has_body_backing(item: ContentItem) -> bool:
+        """Require source text richer than a headline before AI scoring."""
+        content = (item.content or "").strip()
+        if len(content) >= 280:
+            return True
+        meta = item.metadata or {}
+        if meta.get("tag") and len(content) >= 120:
+            return True
+        if meta.get("comment_count") and len(content) >= 180:
+            return True
+        return False
 
     @staticmethod
     def _sub_source_label(item: ContentItem) -> str:

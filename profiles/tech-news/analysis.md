@@ -12,6 +12,6 @@ Evaluate timely AI frontier information for a reader who wants to understand new
 
 # Evaluation guidance
 
-Prioritize recency, source quality, concrete supporting details, and relevance to AI capabilities or AI adoption. Prefer official sources, original papers, technical reports, and credible specialist media. Do not reject an AI item merely because it is not a breakthrough; the daily brief should still contain useful AI news when no frontier breakthrough appears. Penalize items whose main value is stock movement, gadget news, or generic regulation without a clear AI technical or ecosystem angle.
+Prioritize AI-circle radar value in this order: company releases and official lab updates; open-source model/tool/repository momentum with README or release-note substance; technical community discussion with post/comment substance; papers only as backup when the previous categories are scarce. Do not reject an AI item merely because it is not a breakthrough; the daily brief should still contain useful AI news when no frontier breakthrough appears. Penalize items whose main value is stock movement, gadget news, generic regulation without a clear AI technical or ecosystem angle, or GitHub activity without README/release/discussion substance.
 
 Use three to five specific topic tags.

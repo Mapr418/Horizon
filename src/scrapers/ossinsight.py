@@ -7,6 +7,7 @@ substring (case-insensitive). Without keywords, all trending repos in the
 configured languages flow through.
 """
 
+import base64
 from datetime import datetime, timezone
 from typing import List, Optional
 
@@ -43,7 +44,7 @@ class OSSInsightScraper(BaseScraper):
         for lang in self.cfg.languages:
             rows = await self._fetch_period(self.cfg.period, lang)
             for row in rows:
-                item = self._row_to_item(row, lang)
+                item = await self._row_to_item(row, lang)
                 if item is None:
                     continue
                 if item.id in seen_ids:
@@ -77,7 +78,7 @@ class OSSInsightScraper(BaseScraper):
         rows = data.get("rows") or []
         return rows
 
-    def _row_to_item(self, row: dict, language: str) -> Optional[ContentItem]:
+    async def _row_to_item(self, row: dict, language: str) -> Optional[ContentItem]:
         """Convert a raw OSS Insight row into a ContentItem."""
         repo_name = row.get("repo_name")
         repo_id = row.get("repo_id")
@@ -107,6 +108,13 @@ class OSSInsightScraper(BaseScraper):
             content_lines.append("")
             content_lines.append(f"OSS Insight collections: {collections}")
 
+        if self.cfg.fetch_readme:
+            readme = await self._fetch_repo_readme(repo_name)
+            if readme:
+                content_lines.append("")
+                content_lines.append("README excerpt:")
+                content_lines.append(readme)
+
         return ContentItem(
             id=self._generate_id(SourceType.OSSINSIGHT.value, "trending", str(repo_id)),
             source_type=SourceType.OSSINSIGHT,
@@ -129,6 +137,25 @@ class OSSInsightScraper(BaseScraper):
                 "category": self.cfg.category,
             },
         )
+
+
+    async def _fetch_repo_readme(self, repo_name: str) -> str:
+        """Fetch README text for a trending repository through the GitHub API."""
+        try:
+            response = await self.client.get(
+                f"https://api.github.com/repos/{repo_name}/readme",
+                headers={"Accept": "application/vnd.github.v3+json", "User-Agent": "Horizon/1.0"},
+                follow_redirects=True,
+                timeout=20.0,
+            )
+            response.raise_for_status()
+            payload = response.json()
+            encoded = payload.get("content") or ""
+            if not encoded:
+                return ""
+            return base64.b64decode(encoded).decode("utf-8", errors="replace").strip()[: self.cfg.readme_max_chars]
+        except Exception:
+            return ""
 
     @staticmethod
     def _stars_int(row: dict) -> int:
