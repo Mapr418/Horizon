@@ -26,6 +26,16 @@
   "sources": {
     "github": [
       {
+        "type": "trending",
+        "query": null,
+        "max_results": 5,
+        "fetch_readme": true,
+        "readme_max_chars": 7000,
+        "enabled": true,
+        "category": "github-daily-top5",
+        "profile": "tech-news"
+      },
+      {
         "type": "repo_search",
         "query": "topic:artificial-intelligence",
         "sort": "updated",
@@ -273,7 +283,7 @@
       "enabled": false
     },
     "ossinsight": {
-      "enabled": true,
+      "enabled": false,
       "period": "past_24_hours",
       "languages": [
         "All"

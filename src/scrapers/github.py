@@ -6,6 +6,7 @@ import os
 from datetime import datetime
 from typing import List, Optional
 import httpx
+from bs4 import BeautifulSoup
 
 from .base import BaseScraper
 from ..models import ContentItem, SourceType, GitHubSourceConfig
@@ -66,6 +67,9 @@ class GitHubScraper(BaseScraper):
             elif source.type == "repo_search" and source.query:
                 repo_items = await self._fetch_repo_search(source, since)
                 items.extend(repo_items)
+            elif source.type == "trending":
+                trending_items = await self._fetch_trending(source)
+                items.extend(trending_items)
 
         return items
 
@@ -317,6 +321,100 @@ class GitHubScraper(BaseScraper):
                 )
         except httpx.HTTPError as e:
             logger.warning("Error searching GitHub repositories for %s: %s", source.query, e)
+
+        return items
+
+    async def _fetch_trending(self, source: GitHubSourceConfig) -> List[ContentItem]:
+        """Fetch GitHub daily trending repositories and use README text as body content."""
+        params = {"since": "daily"}
+        if source.query:
+            params["spoken_language_code"] = source.query
+        items: List[ContentItem] = []
+
+        try:
+            response = await self.client.get(
+                "https://github.com/trending",
+                params=params,
+                headers={"Accept": "text/html", "User-Agent": "Horizon-Aggregator"},
+                follow_redirects=True,
+                timeout=20.0,
+            )
+            response.raise_for_status()
+        except httpx.HTTPError as e:
+            logger.warning("Error fetching GitHub trending repositories: %s", e)
+            return []
+
+        soup = BeautifulSoup(response.text, "html.parser")
+        repos = soup.select("article.Box-row")
+        now = datetime.now().astimezone()
+
+        for rank, repo_el in enumerate(repos[: max(source.max_results, 1)], start=1):
+            link = repo_el.select_one("h2 a")
+            if not link or not link.get("href"):
+                continue
+            full_name = link.get("href", "").strip("/").replace(" ", "")
+            if "/" not in full_name:
+                continue
+
+            description_el = repo_el.select_one("p")
+            description = description_el.get_text(" ", strip=True) if description_el else ""
+            language_el = repo_el.select_one('[itemprop="programmingLanguage"]')
+            language = language_el.get_text(" ", strip=True) if language_el else None
+
+            stars = 0
+            stars_link = repo_el.select_one(f'a[href="/{full_name}/stargazers"]')
+            if stars_link:
+                stars_text = stars_link.get_text(" ", strip=True).replace(",", "")
+                try:
+                    stars = int(stars_text)
+                except ValueError:
+                    stars = 0
+
+            stars_today = None
+            for span in repo_el.select("span"):
+                text = span.get_text(" ", strip=True)
+                if "stars today" in text or "star today" in text:
+                    stars_today = text
+                    break
+
+            readme = ""
+            if source.fetch_readme:
+                readme = await self._fetch_repo_readme(full_name, source.readme_max_chars)
+            if not readme and not description:
+                continue
+
+            content_lines = [
+                f"GitHub daily trending rank: #{rank}",
+                f"Repository: {full_name}",
+                f"Stars: {stars}",
+                f"Stars today: {stars_today or 'unknown'}",
+                f"Primary language: {language or 'unknown'}",
+            ]
+            if description:
+                content_lines.extend(["", f"Description: {description}"])
+            if readme:
+                content_lines.extend(["", "README excerpt:", readme])
+
+            items.append(
+                ContentItem(
+                    id=self._generate_id("github", "trending", full_name),
+                    source_type=SourceType.GITHUB,
+                    title=f"GitHub daily #{rank}: {full_name}",
+                    url=f"https://github.com/{full_name}",
+                    content="\n".join(content_lines),
+                    author=full_name.split("/")[0],
+                    published_at=now,
+                    profile=source.profile,
+                    metadata={
+                        "repo": full_name,
+                        "rank": rank,
+                        "stars": stars,
+                        "stars_today": stars_today,
+                        "language": language,
+                        "category": source.category,
+                    },
+                )
+            )
 
         return items
 
