@@ -1,9 +1,9 @@
 name: Daily Horizon Summary
 
 on:
-  schedule:
-    # 07:23 Asia/Shanghai; scheduled starts may be delayed by GitHub.
-    - cron: '23 23 * * *'
+  # Paused on 2026-10-26 at the user's request.
+  # Keep manual dispatch available so the workflow can be tested before
+  # restoring the daily schedule.
   workflow_dispatch:
 
 permissions:
